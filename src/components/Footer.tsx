@@ -29,7 +29,6 @@ const useStyles = createStyles((theme) => ({
 }));
 export const Footer = (props:any) => {
     const { classes } = useStyles();
-    console.log(props.theme);
     return (
         <div className={classes.footer}>
             <Container className={classes.inner}>

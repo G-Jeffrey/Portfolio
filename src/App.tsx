@@ -4,6 +4,8 @@ import './App.css';
 import { Nav } from "./components/Navbar"
 import { Footer } from './components/Footer';
 import { Title } from './components/Title';
+import { Skills } from './components/Skill';
+import { Education } from './components/Education';
 import { Group, Skeleton, Grid, MantineProvider, ColorSchemeProvider, createStyles } from '@mantine/core';
 import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
 const useStyles = createStyles((theme) => ({
@@ -38,8 +40,10 @@ function App() {
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleMode}>
       <MantineProvider theme={{ colorScheme }}>
         <Nav mode={colorScheme} toggleNav={toggleNav} />
-        <div className={classes.responsive}>
-          {<Title />}
+        <div className={classes.responsive} style={{backgroundColor: colorScheme === 'dark' ? "#25262b" : "#f8f9fa"}}>
+          {<Title theme={colorScheme}/>}
+          {<Education />}
+          {<Skills/>}
           {<Footer theme={colorScheme} />}
         </div>
       </MantineProvider>

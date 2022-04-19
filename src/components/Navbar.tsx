@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createStyles, Navbar, useMantineColorScheme, Box, SegmentedControl, Center } from '@mantine/core';
+import { SimpleGrid, Group, createStyles, Navbar, useMantineColorScheme, Box, SegmentedControl, Center } from '@mantine/core';
 import {
   School,
   Code,
@@ -16,22 +16,15 @@ import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon');
   return {
-    parent:{
-      zIndex:1,
-      opacity:0.9,
+    parent: {
+      zIndex: 1,
+      opacity: 0.9,
       [theme.fn.smallerThan('sm')]: {
-        zIndex:-1,
-        opacity:0,
-        width:0,
+        zIndex: -1,
+        opacity: 0,
+        width: 0,
       },
     },
-    header: {
-      paddingBottom: theme.spacing.md,
-      marginBottom: theme.spacing.md * 1.5,
-      borderBottom: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
-        }`,
-    },
-
     footer: {
       paddingTop: theme.spacing.md,
       marginTop: theme.spacing.md,
@@ -53,8 +46,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
         fontSize: theme.fontSizes.lg
       },
       '&:hover': {
-        
-       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0], color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0], color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 
         [`& .${icon}`]: {
           color: theme.colorScheme === 'dark' ? theme.white : theme.black,
@@ -84,13 +77,12 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 const data = [
-  { link: '', label: 'Background', icon: User },
-  { link: '', label: 'Education', icon: School },
-  { link: '', label: 'Related Skills', icon: Code },
-  { link: '', label: 'Experiences', icon: Tie },
-  { link: '', label: 'Projects', icon: BrandTabler },
-  { link: '', label: 'Accomplishments', icon: Award },
-  { link: '', label: 'Hobbies', icon: Keyboard },
+  { link: '', label: 'Background', icon: User, icon2: null },
+  { link: '', label: `Edu & Exp`, icon: School, icon_2: Tie },
+  { link: '', label: 'Skills', icon: Code, icon2: null },
+  { link: '', label: 'Projects', icon: BrandTabler, icon2: null },
+  { link: '', label: 'Achievements', icon: Award, icon2: null },
+  { link: '', label: 'Hobbies', icon: Keyboard, icon2: null },
 ];
 
 export const Nav = (props: any) => {
@@ -106,8 +98,25 @@ export const Nav = (props: any) => {
         setActive(item.label);
       }}
     >
-      <item.icon className={classes.linkIcon} />
-      <span>{item.label}</span>
+      {/* <Group direction='column'>
+        <Group direction="row"> */}
+          {<>
+            <item.icon className={classes.linkIcon}></item.icon>
+            <span>{item.label}</span>
+          </>}
+        {/* </Group>
+        <Group direction="row">
+          {(typeof item.icon_2 === 'function') ?
+        <>
+          <item.icon_2 className={classes.linkIcon} />{`\n`}
+          <span>{item.label.split(" ")[1]}</span>
+        </>
+        : ''}
+        </Group>
+      </Group> */}
+
+      
+
     </a>
   ));
   return (
@@ -143,7 +152,6 @@ export const Nav = (props: any) => {
           ]}
         />
         <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}  >
-          <span style={{paddingBottom:'1vh'}}>Jeffrey Guan</span>
         </a>
       </Navbar.Section>
     </Navbar>
