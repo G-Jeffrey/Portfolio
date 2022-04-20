@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Accordion, SimpleGrid, Group, createStyles, Navbar, useMantineColorScheme, ThemeIcon } from '@mantine/core';
-import { Palette } from 'tabler-icons-react';
+import { Database, } from 'tabler-icons-react';
 const BREAKPOINT = '@media (max-width: 755px)';
 const useStyles = createStyles((theme) => ({
     centerize: {
@@ -10,25 +10,28 @@ const useStyles = createStyles((theme) => ({
         flexWrap: 'wrap'
     },
     icon: {
-        width: 300,
-        height: 230,
-        marginTop: 30,
-        marginBottom: 30,
+        width: 180,
+        height: 130,
+        marginTop: 20,
+        marginBottom: 20,
         [BREAKPOINT]: {
-            width: 200,
-            height: 200,
+            width: 140,
+            height: 110,
         },
+    },
+    margin: {
+        marginLeft:30
     }
 }));
 export const Skills = () => {
     const { classes } = useStyles();
     return (
-        <Accordion disableIconRotation>
+        <Accordion className={classes.margin} disableIconRotation>
             <Accordion.Item
                 label="Programming Langauges"
                 icon={
-                    <ThemeIcon color="violet" variant="light">
-                        <Palette size={14} />
+                    <ThemeIcon variant="light">
+                        <img src='./languages/language.svg' />
                     </ThemeIcon>
                 }
             >
@@ -44,8 +47,8 @@ export const Skills = () => {
             <Accordion.Item
                 label="Frameworks"
                 icon={
-                    <ThemeIcon color="violet" variant="light">
-                        <Palette size={14} />
+                    <ThemeIcon color={'violet'} variant="light">
+                        <img src='./languages/framework.svg' />
                     </ThemeIcon>
                 }
             >
@@ -53,7 +56,6 @@ export const Skills = () => {
                     <img src='./languages/django.svg' className={classes.icon} alt='django(py)' />
                     <img src='./languages/flask.svg' className={classes.icon} alt='flask(py)' />
                     <img src='./languages/next.svg' className={classes.icon} alt='next.js(react)' />
-
                     <img src='./languages/nodejs.svg' className={classes.icon} alt='node.js(js)' />
                     <img src='./languages/react.svg' className={classes.icon} alt='react(node)' />
                     <img src='./languages/sinatra.svg' className={classes.icon} alt='Sinatra(Ruby)' />
@@ -62,8 +64,8 @@ export const Skills = () => {
             <Accordion.Item
                 label="Web Development"
                 icon={
-                    <ThemeIcon color="violet" variant="light">
-                        <Palette size={14} />
+                    <ThemeIcon color={'red'} variant="light">
+                        <img src='./languages/web_dev.svg' />
                     </ThemeIcon>
                 }
             >
@@ -83,14 +85,15 @@ export const Skills = () => {
             <Accordion.Item
                 label="Databases"
                 icon={
-                    <ThemeIcon color="violet" variant="light">
-                        <Palette size={14} />
+                    <ThemeIcon color={'orange'} variant="light">
+                        <img src='./languages/database.svg' />
                     </ThemeIcon>
                 }
             >
                 <div className={classes.centerize}>
-                    <img src='./languages/posgtres.svg' className={classes.icon} alt='postgresql' />
                     <img src='./languages/mysql.svg' className={classes.icon} alt='mysql' />
+                    <img src='./languages/postgres.svg' className={classes.icon} alt='postgresql' />
+                    <img src='./languages/sqlite.svg' className={classes.icon} alt='sqllite' />
 
 
                 </div>
@@ -98,8 +101,8 @@ export const Skills = () => {
             <Accordion.Item
                 label="Others Techincal Skills"
                 icon={
-                    <ThemeIcon color="violet" variant="light">
-                        <Palette size={14} />
+                    <ThemeIcon color={'yellow'} variant="light">
+                        <img src='./languages/other.svg' />
                     </ThemeIcon>
                 }
             >
@@ -118,14 +121,18 @@ export const Skills = () => {
             <Accordion.Item
                 label="Soft Skills"
                 icon={
-                    <ThemeIcon color="violet" variant="light">
-                        <Palette size={14} />
+                    <ThemeIcon color="gray" variant="light">
+                        <img src='./languages/skills.svg' />
                     </ThemeIcon>
                 }
             >
                 <div className={classes.centerize}>
                     <img src='./languages/ai.svg' className={classes.icon} alt='ai' />
                     <img src='./languages/arduino.svg' className={classes.icon} alt='arduino' />
+                    <img src='./languages/excel.svg' className={classes.icon} alt='excel' />
+                    <img src='./languages/google_sheets.svg' className={classes.icon} alt='google_sheets' />
+                    <img src='./languages/google_suite.svg' className={classes.icon} alt='google_suite' />
+                    <img src='./languages/microsoft_suite.svg' className={classes.icon} alt='microsoft_suite' />
                     <img src='./languages/photoshop.svg' className={classes.icon} alt='photoshop' />
                 </div>
             </Accordion.Item>

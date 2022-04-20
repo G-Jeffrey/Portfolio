@@ -28,8 +28,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
     footer: {
       paddingTop: theme.spacing.md,
       marginTop: theme.spacing.md,
-      borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
-        }`,
+      borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]}`,
     },
 
     link: {
@@ -100,11 +99,11 @@ export const Nav = (props: any) => {
     >
       {/* <Group direction='column'>
         <Group direction="row"> */}
-          {<>
-            <item.icon className={classes.linkIcon}></item.icon>
-            <span>{item.label}</span>
-          </>}
-        {/* </Group>
+      {<>
+        <item.icon className={classes.linkIcon}></item.icon>
+        <span>{item.label}</span>
+      </>}
+      {/* </Group>
         <Group direction="row">
           {(typeof item.icon_2 === 'function') ?
         <>
@@ -115,7 +114,7 @@ export const Nav = (props: any) => {
         </Group>
       </Group> */}
 
-      
+
 
     </a>
   ));

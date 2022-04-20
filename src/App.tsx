@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { Title } from './components/Title';
 import { Skills } from './components/Skill';
 import { Education } from './components/Education';
+import { Project } from './components/Project';
 import { Group, Skeleton, Grid, MantineProvider, ColorSchemeProvider, createStyles } from '@mantine/core';
 import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
 const useStyles = createStyles((theme) => ({
@@ -44,6 +45,7 @@ function App() {
           {<Title theme={colorScheme}/>}
           {<Education />}
           {<Skills/>}
+          {<Project/>}
           {<Footer theme={colorScheme} />}
         </div>
       </MantineProvider>
