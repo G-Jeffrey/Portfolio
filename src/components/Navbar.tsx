@@ -11,7 +11,7 @@ import {
   Sun,
   Moon
 } from 'tabler-icons-react';
-import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon');
@@ -76,47 +76,32 @@ const useStyles = createStyles((theme, _params, getRef) => {
 });
 
 const data = [
-  { link: '', label: 'Background', icon: User, icon2: null },
-  { link: '', label: `Edu & Exp`, icon: School, icon_2: Tie },
-  { link: '', label: 'Skills', icon: Code, icon2: null },
-  { link: '', label: 'Projects', icon: BrandTabler, icon2: null },
-  { link: '', label: 'Achievements', icon: Award, icon2: null },
-  { link: '', label: 'Hobbies', icon: Keyboard, icon2: null },
+  { link: 'background', label: 'Background', icon: User, icon2: null },
+  { link: 'education', label: `Edu & Exp`, icon: School, icon_2: Tie },
+  { link: 'skills', label: 'Skills', icon: Code, icon2: null },
+  { link: 'projects', label: 'Projects', icon: BrandTabler, icon2: null },
+  { link: 'achievements', label: 'Achievements', icon: Award, icon2: null },
+  { link: 'hobbies', label: 'Hobbies', icon: Keyboard, icon2: null },
 ];
 
 export const Nav = (props: any) => {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState('Background');
   const links = data.map((item) => (
-    <a
-      className={cx(classes.link, { [classes.linkActive]: item.label === active })}
-      href={item.link}
-      key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(item.label);
-      }}
-    >
-      {/* <Group direction='column'>
-        <Group direction="row"> */}
-      {<>
+    <Link activeClass="active" to={item.link} smooth={true} spy={true} duration={400}
+      onSetActive={()=>setActive(item.label)} isDynamic={true} hashSpy={true}>
+      <a
+        className={cx(classes.link, { [classes.linkActive]: item.label === active })}
+        href={item.link}
+        key={item.label}
+        onClick={(event) => {
+          event.preventDefault();
+        }}
+      >
         <item.icon className={classes.linkIcon}></item.icon>
         <span>{item.label}</span>
-      </>}
-      {/* </Group>
-        <Group direction="row">
-          {(typeof item.icon_2 === 'function') ?
-        <>
-          <item.icon_2 className={classes.linkIcon} />{`\n`}
-          <span>{item.label.split(" ")[1]}</span>
-        </>
-        : ''}
-        </Group>
-      </Group> */}
-
-
-
-    </a>
+      </a>
+    </Link >
   ));
   return (
     <Navbar className={classes.parent} height={'100vh'} width={{ sm: '200px', lg: '300px' }} p="md" fixed>
@@ -150,7 +135,7 @@ export const Nav = (props: any) => {
             },
           ]}
         />
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}  >
+        <a className={classes.link} onClick={(event) => event.preventDefault()}  >
         </a>
       </Navbar.Section>
     </Navbar>

@@ -22,7 +22,6 @@ const useStyles = createStyles((theme) => (
     position: 'relative',
     paddingTop: 100,
     paddingBottom: 120,
-
     [BREAKPOINT]: {
       paddingBottom: 80,
       paddingTop: 80,
@@ -70,7 +69,6 @@ const useStyles = createStyles((theme) => (
     height: 54,
     paddingLeft: 38,
     paddingRight: 38,
-
     [BREAKPOINT]: {
       height: 54,
       paddingLeft: 18,

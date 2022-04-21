@@ -20,7 +20,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
             color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         },
         header: {
-            paddingTop: 10,
+            paddingTop: 20,
             fontSize: 40,
             fontWeight: 600,
             marginLeft: 35,
@@ -42,7 +42,6 @@ const useStyles = createStyles((theme, _params, getRef) => {
 
 export const Education = () => {
     const { classes, cx } = useStyles();
-    console.log(colors)
     return (
         <Container className={classes.background}>
             <Text className={classes.header} color="dimmed">
@@ -55,7 +54,7 @@ export const Education = () => {
             <VerticalTimeline animate={true} lineColor={colorScheme === 'dark' ? colors.dark[1] : colors.gray[4]}>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none' }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="Sept 2021 - May 2022"
                     dateClassName={classes.date_text}
@@ -71,7 +70,7 @@ export const Education = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className=""
-                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none' }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="June 2021 - October 2021"
                     dateClassName={classes.date_text}
@@ -86,7 +85,7 @@ export const Education = () => {
                 <div></div>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none' }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="Sept 2019 - May 2022"
                     dateClassName={classes.date_text}
@@ -102,7 +101,7 @@ export const Education = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none' }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="Sept 2019 - May 2022"
                     dateClassName={classes.date_text}
@@ -118,7 +117,7 @@ export const Education = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className=""
-                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none' }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="June 2016 - May 2019"
                     dateClassName={classes.date_text}
@@ -132,7 +131,7 @@ export const Education = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none' }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="Sept 2015 - May 2019"
                     dateClassName={classes.date_text}
@@ -148,7 +147,6 @@ export const Education = () => {
                     </p>
                 </VerticalTimelineElement>
             </VerticalTimeline>
-            <br/>
         </Container>
     )
 }

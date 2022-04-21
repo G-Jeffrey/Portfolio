@@ -7,8 +7,11 @@ import { Title } from './components/Title';
 import { Skills } from './components/Skill';
 import { Education } from './components/Education';
 import { Project } from './components/Project';
-import { Group, Skeleton, Grid, MantineProvider, ColorSchemeProvider, createStyles } from '@mantine/core';
+import { MantineProvider, ColorSchemeProvider, createStyles } from '@mantine/core';
 import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
+import { Element} from 'react-scroll';
+import { Achievement } from './components/Achievements';
+
 const useStyles = createStyles((theme) => ({
   responsive: {
     marginLeft: `200px`,
@@ -41,12 +44,26 @@ function App() {
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleMode}>
       <MantineProvider theme={{ colorScheme }}>
         <Nav mode={colorScheme} toggleNav={toggleNav} />
-        <div className={classes.responsive} style={{backgroundColor: colorScheme === 'dark' ? "#25262b" : "#f8f9fa"}}>
-          {<Title theme={colorScheme}/>}
-          {<Education />}
-          {<Skills/>}
-          {<Project/>}
+        <div className={classes.responsive} style={{ backgroundColor: colorScheme === 'dark' ? "#25262b" : "#f8f9fa" }} >
+          <Element name="background" key={'title'} >
+            {<Title theme={colorScheme} />}
+          </Element>
+          <Element name="education" key={'education'}>
+            {<Education />}
+          </Element>
+          <Element name="skills" key={'skills'}>
+            {<Skills />}
+          </Element>
+
+ 
+          <Element name="projects" key={'project'} >
+            {<Project />} 
+          </Element>
+          <Element name="achievements" key={'project'} >
+            {<Achievement />}
+          </Element>
           {<Footer theme={colorScheme} />}
+
         </div>
       </MantineProvider>
     </ColorSchemeProvider >

@@ -25,6 +25,9 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     fontSize: theme.fontSizes.xs,
     fontWeight: 700,
   },
+  borderBottom:{
+    borderBottom: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]}`
+  }
 }));
 interface ProjectCardProps {
   image: string[][];
@@ -46,13 +49,13 @@ export const ProjectCard = ({ image, title, link, description, reason, badges }:
       key={badge.label}
       rightSection={badge.label}
     >
-      <Image src={badge.icon} width={16}/>
+      <Image src={badge.icon} width={16} />
     </Badge>
   ));
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
-      <Card.Section>
-        <Carousel interval={2000} infiniteLoop={true} swipeable={true} stopOnHover={true} autoPlay={true} showThumbs={false}>
+      <Card.Section className={classes.borderBottom}>
+        <Carousel interval={2000} infiniteLoop={true} swipeable={true} showThumbs={false}>
           {image.map((img) =>
             <div>
               <Image src={img[0]} fit='contain' height={700} />
@@ -63,10 +66,9 @@ export const ProjectCard = ({ image, title, link, description, reason, badges }:
 
         </Carousel>
       </Card.Section>
-
       <Card.Section className={classes.section} mt="md">
         <Group position="apart">
-          <Text style={{fontSize:'3em'}} weight={'bolder'}>
+          <Text style={{ fontSize: '3em' }} weight={'bolder'}>
             {title}{' '}
             <sup><Text mt="sm" component='a' href={link} target='_blank' className={classes.label} color="dimmed">
               <ExternalLink size={20} />

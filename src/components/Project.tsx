@@ -7,7 +7,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
 export const Project = () => {
     return (
-        <div style={{ margin: 30 }}>
+        <div style={{ margin: 40, marginTop: 0 }}>
             <Text style={{
                 textAlign: 'center', padding: '20px', fontSize: 40,
                 fontWeight: 900,
@@ -26,6 +26,7 @@ export const Project = () => {
                         ['./projects/skilly/profile.png', 'Profile'],
                         ['./projects/skilly/resume_builder.png', 'Resume Builder']
                     ]}
+                    key={'Skill.ly'}
                     title={'Skill.ly'}
                     link={'https://devpost.com/software/skill-ly'}
                     description={'Many times when we submit out resumes to an ATS (Applicant Tracking System) parser, it returns inaccurate data. In many occasions many applicants are rejected by the machine because either the parser incorrectly formatted the data or the resume lacks specific keywords. To address this issue, we wanted to create a platform that allows recruiters to get a comprehensive overview of every applicants’ skills, work experience, and achievements.'}
@@ -43,6 +44,7 @@ export const Project = () => {
                         ['./projects/etit/reviews.png', 'Reviews Screen'],
                         ['./projects/etit/leave-review.png', 'Leave Review Page']
                     ]}
+                    key={'Eti.it'}
                     title={'Et.it'}
                     link={'https://devpost.com/software/jhk-pmz63c'}
                     description={'An application that gamifies the process of food ordering, breaks the monopoly on food reviews held by companies like Yelp and UberEats, provides cheap, reliable, and verified reviews to restaurants, and uses a review system based on blockchain, completely independent of our company.'}
@@ -66,6 +68,7 @@ export const Project = () => {
                         ['./projects/toki/items_filter.png', 'Filter Items'],
                         ['./projects/toki/items.png', 'Profile Overview'],
                     ]}
+                    key={'Toki'}
                     title={'Toki'}
                     link={'https://toki-tracker.herokuapp.com/'}
                     description={'The purpose of this application is to be able to track user spending on custom keyboard purchases. Over the course of years, we want to track our spending on our hobby as well as our arrival and purchase date. This application allows users of the custom keyboard hobby to track their spending and categorize it by vendor, order name, cost, arrival date, or purchase date. The current userbase is for the people of the NY custom keyboard discord server.'}
@@ -91,6 +94,7 @@ export const Project = () => {
                         ['./projects/drop_by/event_info.png', 'Maps: Event Infomation'],
                         ['./projects/drop_by/design_doc.png', 'Database Schema Document'],
                     ]}
+                    key={'Drop By'}
                     title={'Drop By'}
                     link={'https://github.com/drop-by/Drop_by'}
                     description={'For meeting users who have similar hobbies and plan events with large groups. Sometimes it is difficult to find different activities to do outside with friends. People with friends/ family, people who love to socialize or who don’t know what to do when hanging out. Business owners would also use the app to advertise their own events to the public.'}
