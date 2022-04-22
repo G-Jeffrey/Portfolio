@@ -13,6 +13,7 @@ import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
 import { Element} from 'react-scroll';
 import { Achievement } from './components/Achievements';
 
+
 const useStyles = createStyles((theme) => ({
   responsive: {
     marginLeft: `200px`,
@@ -49,9 +50,6 @@ function App() {
           <Element name="background" key={'title'} >
             {<Title theme={colorScheme} />}
           </Element>
-
-
-          
           <Element name="education" key={'education'}>
             {<Education />}
           </Element>

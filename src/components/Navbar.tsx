@@ -48,6 +48,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0], color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 
+
         [`& .${icon}`]: {
           color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         },
@@ -77,6 +78,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       paddingTop: 3,
       paddingLeft: 0
     }
+
   };
 });
 
@@ -87,6 +89,7 @@ const data = [
   { link: 'projects', label: 'Projects', icon: BrandTabler, icon2: null },
   { link: 'achievements', label: 'Achievements', icon: Award, icon2: null },
   { link: 'hobby', label: 'Hobbies', icon: Keyboard, icon2: null },
+
 ];
 
 export const Nav = (props: any) => {
@@ -104,6 +107,7 @@ export const Nav = (props: any) => {
   ));
   return (
     <Navbar className={classes.parent} height={'100vh'} width={{ sm: '200px', lg: '300px' }} p="md" key={props.mode} fixed>
+
       <Navbar.Section grow>
         {links}
       </Navbar.Section>
