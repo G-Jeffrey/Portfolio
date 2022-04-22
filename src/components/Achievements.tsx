@@ -44,7 +44,7 @@ export const Achievement = () =>{
                 fontWeight: 900,
                 lineHeight: 1.1
             }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Achievements </Text>
-            <Text style={{textAlign: 'center', paddingBottom: '20px'}} color="dimmed" size="sm">Click n Drag!</Text>
+            <Text style={{textAlign: 'center', paddingBottom: '20px'}} color="dimmed" size="sm">Drag n Drag!</Text>
             <DndList data={[{desc: "Baccalaureate in Computer Science 2 1/2 years, 120+ credits", url: './projects/icon/qc.png', name: 'Undergrad at Queens College' },
                             {desc: `Selective software engineering program, 80 students out of 1000+ applicants.<br/>Learned and deployed in-demand technologies like React, Node.js, Typescript, Express, Sequelize,\
                              PostgreSQL, and other Javascript frameworks. Used industry best practices for design, implementation,\

@@ -2,6 +2,7 @@ import React from 'react';
 import { createStyles, Text, Image } from '@mantine/core';
 import { useListState } from '@mantine/hooks';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import internal from 'stream';
 
 const useStyles = createStyles((theme) => ({
   item: {
@@ -58,10 +59,10 @@ export function DndList({ data }: DndListProps) {
             <Text color="dimmed" size="sm">
               {item.desc.split('<br/>').map(text=>
                 (
-                  <>
+                  <span key={text}>
                   {text}
-                  <br/>
-                  </>
+                  <br />
+                  </span>
                 ))}
             </Text>
           </div>

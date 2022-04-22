@@ -36,7 +36,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 export const Skills = () => {
     const { classes } = useStyles();
     return (
-        <>
+        <div style={{paddingTop:'20px'}}>
             <Text style={{
                 textAlign: 'center', padding: '20px', fontSize: 40,
                 fontWeight: 900,
@@ -154,6 +154,6 @@ export const Skills = () => {
                     </div>
                 </Accordion.Item>
             </Accordion>
-        </>
+        </div>
     )
 }

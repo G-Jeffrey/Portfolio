@@ -53,12 +53,12 @@ export const ProjectCard = ({ image, title, link, description, reason, badges }:
     </Badge>
   ));
   return (
-    <Card withBorder radius="md" p="md" className={classes.card}>
+    <Card withBorder radius="md" p="md" className={classes.card} key={title}>
       <Card.Section className={classes.borderBottom}>
         <Carousel interval={2000} infiniteLoop={true} swipeable={true} showThumbs={false}>
-          {image.map((img) =>
-            <div>
-              <Image src={img[0]} fit='contain' height={700} />
+          {image.map((img,i) =>
+            <div key={i}>
+              <Image src={img[0]} fit='contain' height={700} key={img[1]}/>
               <p className="legend">{img[1]}</p>
             </div>
           )}
@@ -82,7 +82,6 @@ export const ProjectCard = ({ image, title, link, description, reason, badges }:
       </Card.Section>
 
       <Card.Section className={classes.section}>
-
         <Group spacing={7} mt={5}>
           {features}
         </Group>

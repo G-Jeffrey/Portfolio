@@ -7,6 +7,7 @@ import { Title } from './components/Title';
 import { Skills } from './components/Skill';
 import { Education } from './components/Education';
 import { Project } from './components/Project';
+import { Hobby } from './components/Hobby';
 import { MantineProvider, ColorSchemeProvider, createStyles } from '@mantine/core';
 import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
 import { Element} from 'react-scroll';
@@ -48,19 +49,23 @@ function App() {
           <Element name="background" key={'title'} >
             {<Title theme={colorScheme} />}
           </Element>
+
+
+          
           <Element name="education" key={'education'}>
             {<Education />}
           </Element>
           <Element name="skills" key={'skills'}>
             {<Skills />}
           </Element>
-
- 
           <Element name="projects" key={'project'} >
             {<Project />} 
           </Element>
-          <Element name="achievements" key={'project'} >
+          <Element name="achievements" key={'achievements'} >
             {<Achievement />}
+          </Element>
+          <Element name="hobby" key={'hobby'} >
+            {<Hobby />}
           </Element>
           {<Footer theme={colorScheme} />}
 
