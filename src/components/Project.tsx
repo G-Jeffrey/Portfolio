@@ -38,6 +38,34 @@ export const Project = () => {
                 />
                 <ProjectCard
                     image={[
+                        ['./projects/toki/landing.png', 'Landing Page'],
+                        ['./projects/toki/vendors.png', 'Vendors List'],
+                        ['./projects/toki/login.png', 'Login Page (Picture of Toki from NY MK Discord)'],
+                        ['./projects/toki/orders.png', 'Order Overview'],
+                        ['./projects/toki/filter_order.png', 'Filter Orders'],
+                        ['./projects/toki/add_order.png', 'Create Order'],
+                        ['./projects/toki/edit_order.png', 'Edit Order'],
+                        ['./projects/toki/items.png', 'Item Overview'],
+                        ['./projects/toki/items_filter.png', 'Filter Items'],
+                        ['./projects/toki/items.png', 'Profile Overview'],
+                    ]}
+                    key={'Toki'}
+                    title={'Toki'}
+                    link={'https://toki-tracker.herokuapp.com/'}
+                    description={'The purpose of this application is to be able to track user spending on custom keyboard purchases. Over the course of years, we want to track our spending on our hobby as well as our arrival and purchase date. This application allows users of the custom keyboard hobby to track their spending and categorize it by vendor, order name, cost, arrival date, or purchase date. The current userbase is for the people of the NY custom keyboard discord server.'}
+                    reason={'Toki : Glorified Spreadsheet'}
+                    badges={[{ label: 'Personal Project', icon: './projects/icon/personal.svg' },
+                    { label: 'React', icon: './languages/react.svg' },
+                    { label: 'Bootstrap', icon: './languages/bootstrap.svg' },
+                    { label: 'Heroku', icon: './languages/heroku.svg' },
+                    { label: 'PostgreSQL', icon: './languages/postgres.svg' },
+                    { label: 'Prisma ORM', icon: './projects/icon/prisma.svg' },
+                    { label: 'Express', icon: './projects/icon/express.png' },
+                    { label: 'Node.js', icon: './languages/nodejs.svg' },
+                    { label: 'Imgur', icon: './projects/icon/imgur.png' }]}
+                />
+                <ProjectCard
+                    image={[
                         ['./projects/etit/home.png', 'Home Screen'],
                         ['./projects/etit/search.png', 'Search Screen'],
                         ['./projects/etit/restaurant.png', 'Restaurant Screen'],
@@ -55,29 +83,7 @@ export const Project = () => {
                     { label: 'Mobile', icon: './projects/icon/mobile.svg' },
                     { label: 'Fully Functional', icon: './projects/icon/functional.svg' }]}
                 />
-                <ProjectCard
-                    image={[
-                        ['./projects/toki/landing.png', 'Landing Page'],
-                        ['./projects/toki/vendors.png', 'Vendors List'],
-                        ['./projects/toki/login.png', 'Login Page (Picture of Toki from NY MK Discord)'],
-                        ['./projects/toki/orders.png', 'Order Overview'],
-                        ['./projects/toki/filter_order.png', 'Filter Orders'],
-                    ]}
-                    key={'Toki'}
-                    title={'Toki'}
-                    link={'https://toki-tracker.herokuapp.com/'}
-                    description={'The purpose of this application is to be able to track user spending on custom keyboard purchases. Over the course of years, we want to track our spending on our hobby as well as our arrival and purchase date. This application allows users of the custom keyboard hobby to track their spending and categorize it by vendor, order name, cost, arrival date, or purchase date. The current userbase is for the people of the NY custom keyboard discord server.'}
-                    reason={'Toki : Glorified Spreadsheet'}
-                    badges={[{ label: 'Personal Project', icon: './projects/icon/personal.svg' },
-                    { label: 'React', icon: './languages/react.svg' },
-                    { label: 'Bootstrap', icon: './languages/bootstrap.svg' },
-                    { label: 'Heroku', icon: './languages/heroku.svg' },
-                    { label: 'PostgreSQL', icon: './languages/postgres.svg' },
-                    { label: 'Prisma ORM', icon: './projects/icon/prisma.svg' },
-                    { label: 'Express', icon: './projects/icon/express.png' },
-                    { label: 'Node.js', icon: './languages/nodejs.svg' },
-                    { label: 'Imgur', icon: './projects/icon/imgur.png' }]}
-                />
+                
                 <ProjectCard
                     image={[
                         ['./projects/drop_by/landing.png', 'Landing Page'],
