@@ -74,9 +74,9 @@ const useStyles = createStyles((theme, _params, getRef) => {
       },
     },
     removeMargin:{
-      paddingBottom: 3,
-      paddingTop: 3,
-      paddingLeft: 0
+      display: 'flex',
+      alignItems: 'center',
+      textDecoration: 'none'
     }
 
   };
@@ -96,14 +96,16 @@ export const Nav = (props: any) => {
   const { classes, cx } = useStyles();
   const [active, setActive] = useState('Background');
   const links = data.map((item) => (
+    <div style={{marginBottom: '5px'}}>
     <Link activeClass="active" to={item.link} smooth={true} spy={true} duration={400} href={item.link}
       onSetActive={()=>setActive(item.label)} isDynamic={true} hashSpy={true} key={item.link}
       className={cx(classes.link, { [classes.linkActive]: item.label === active })}>
-      <span className={cx(classes.link, classes.removeMargin, { [classes.linkActive]: item.label === active })}>
+      <span className={cx( classes.removeMargin)}>
         <item.icon className={classes.linkIcon}></item.icon>
         <span>{item.label}</span>
       </span>
     </Link >
+    </div>
   ));
   return (
     <Navbar className={classes.parent} height={'100vh'} width={{ sm: '200px', lg: '300px' }} p="md" key={props.mode} fixed>

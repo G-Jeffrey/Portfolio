@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, RingProgress, Progress, Box, Text, Group, Paper, SimpleGrid, Image } from '@mantine/core';
+import { createStyles, RingProgress, Progress, Box, Text, Group, Paper, SimpleGrid, Image, Button } from '@mantine/core';
 import { ArrowUpRight, DeviceAnalytics } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -74,13 +74,13 @@ export function StatsSegments({ total, diff, totalSolved, data }: StatsSegmentsP
           <Text color={stat.color} weight={700} align="center" size="xl">
             {stat.totalPercent}%
           </Text>
-        }/>
-        <Text color={stat.color} weight={500} align="center" size="lg">
-          {stat.count}
-          <Text weight={300} color='dimmed' size = 'sm' component='span'>
+        } />
+      <Text color={stat.color} weight={500} align="center" size="lg">
+        {stat.count}
+        <Text weight={300} color='dimmed' size='sm' component='span'>
           {' '}/{stat.total}
         </Text>
-        </Text>
+      </Text>
     </div>
   ));
 

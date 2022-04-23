@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, Container, Group, ActionIcon, Text } from '@mantine/core';
-import { BrandGithub, BrandYoutube, BrandLinkedin, BrandApple } from 'tabler-icons-react';
+import { BrandGithub, BrandYoutube, BrandLinkedin } from 'tabler-icons-react';
 const year = new Date().getFullYear();
 const useStyles = createStyles((theme) => ({
     footer: {
@@ -27,7 +27,7 @@ const useStyles = createStyles((theme) => ({
         },
     },
 }));
-export const Footer = (props:any) => {
+export const Footer = () => {
     const { classes } = useStyles();
     return (
         <div className={classes.footer}>

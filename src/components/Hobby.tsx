@@ -1,23 +1,24 @@
 // @ts-nocheck
 import React, { useEffect, useState } from 'react';
-import { Container, createStyles, SimpleGrid, Text, Card, Group } from '@mantine/core';
+import { Container, createStyles, SimpleGrid, Text, Card, Button, Image, Center, Box } from '@mantine/core';
 import { StatsSegments } from './LeetcodeStat';
 
 
 
 const useStyles = createStyles((theme) => ({
-
+  backgroundCTA: {
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+  },
 }));
 export const Hobby = () => {
   const [data, setData] = useState({});
+  const {classes} = useStyles();
   useEffect(() => {
     fetch('https://leetcode-stats-api.herokuapp.com/jeffreyg2240', {
       method: 'GET'
     }).then(res => res.json()).then(res => setData(res));
   }, [])
-  console.log(data)
   const easyP = parseFloat((data.easySolved / data.totalSolved * 100).toFixed(1)), medP = parseFloat((data.mediumSolved / data.totalSolved * 100).toFixed(1)), hardP = parseFloat((data.hardSolved / data.totalSolved * 100).toFixed(1));
-  console.log(typeof easyP, typeof medP, typeof hardP);
   return (
     <Container style={{ marginTop: '30px', marginBottom: '50px' }}>
       <Text style={{
@@ -27,7 +28,7 @@ export const Hobby = () => {
       }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Hobbies </Text>
 
       <SimpleGrid cols={2}>
-        <Card>
+        <Card className={classes.backgroundCTA}>
           <Card.Section>
             {
               data['status'] === 'success' ?
@@ -46,9 +47,14 @@ export const Hobby = () => {
                   ]} />
             }
           </Card.Section>
-          <Group>
-            Jeffreyg2240
-          </Group>
+          <Card.Section style={{margin: 20}}>
+            <Center>
+            <Button component="a"
+              target="_blank" href='https://leetcode.com/Jeffreyg2240/' gradient={{ from: 'red', to: 'cyan' }}>
+              <Image src='./projects/icon/lc.png' width={50} /> Link
+            </Button>
+            </Center>
+          </Card.Section>
 
         </Card>
       </SimpleGrid>

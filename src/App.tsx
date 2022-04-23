@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Nav } from "./components/Navbar"
-import { Footer } from './components/Footer';
 import { Title } from './components/Title';
+import { Footer } from './components/Footer';
 import { Skills } from './components/Skill';
 import { Education } from './components/Education';
 import { Project } from './components/Project';
@@ -65,7 +65,7 @@ function App() {
           <Element name="hobby" key={'hobby'} >
             {<Hobby />}
           </Element>
-          {<Footer theme={colorScheme} />}
+          {<Footer/>}
 
         </div>
       </MantineProvider>
