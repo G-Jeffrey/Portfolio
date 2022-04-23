@@ -54,7 +54,7 @@ export function StatsSegments({ total, diff, totalSolved, data }: StatsSegmentsP
   }));
 
   const descriptions = data.map((stat) => (
-    <div>
+    <div key={stat.label}>
       <Box key={stat.label} sx={{ borderBottomColor: stat.color }} className={classes.stat}>
         <Text transform="uppercase" size="xs" color="dimmed" weight={700}>
           {stat.label}

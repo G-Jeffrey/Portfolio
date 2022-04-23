@@ -51,7 +51,7 @@ export const Hobby = () => {
             <Center>
             <Button component="a"
               target="_blank" href='https://leetcode.com/Jeffreyg2240/' gradient={{ from: 'red', to: 'cyan' }}>
-              <Image src='./projects/icon/lc.png' width={50} /> Link
+              <Image src='./projects/icon/lc.png' width={30} /> Link
             </Button>
             </Center>
           </Card.Section>

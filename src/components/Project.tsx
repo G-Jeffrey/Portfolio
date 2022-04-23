@@ -62,11 +62,6 @@ export const Project = () => {
                         ['./projects/toki/login.png', 'Login Page (Picture of Toki from NY MK Discord)'],
                         ['./projects/toki/orders.png', 'Order Overview'],
                         ['./projects/toki/filter_order.png', 'Filter Orders'],
-                        ['./projects/toki/add_order.png', 'Create Order'],
-                        ['./projects/toki/edit_order.png', 'Edit Order'],
-                        ['./projects/toki/items.png', 'Item Overview'],
-                        ['./projects/toki/items_filter.png', 'Filter Items'],
-                        ['./projects/toki/items.png', 'Profile Overview'],
                     ]}
                     key={'Toki'}
                     title={'Toki'}
