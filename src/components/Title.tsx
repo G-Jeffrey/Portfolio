@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Avatar, createStyles, Container, Text, Button, Group, useMantineTheme } from '@mantine/core';
-import { At } from 'tabler-icons-react';
+import { At, DeviceMobileRotated } from 'tabler-icons-react';
 import { Dots } from './Dots';
 import { Element } from 'react-scroll';
-
+import Typewriter, { TypewriterState } from 'typewriter-effect';
 const BREAKPOINT = '@media (max-width: 755px)';
 // type Theme = {
 //   theme: "black" | "white";
@@ -93,17 +93,15 @@ const useStyles = createStyles((theme) => (
     },
     name: {
       fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    },
+    }
   }));
 
 export function Title(props: any) {
   const { classes, cx } = useStyles();
-  const theme = useMantineTheme();
-
+  const strings = ['Software Engineer', 'Web Developer', 'Fullstack Developer', 'Custom Mechanical Keyboard Enthusiast'];
   return (
     <Element name="background" key={'title'} >
       <div className={classes.wrapper}>
-
         <Dots className={classes.dots} style={{ left: 10, top: 10 }} />
         <Dots className={classes.dots} style={{ left: 210, top: 10 }} />
         <Dots className={classes.dots} style={{ left: 10, top: 110 }} />
@@ -117,8 +115,28 @@ export function Title(props: any) {
               <Avatar size={120} radius="md" />
               <div>
 
-                <Text sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                  {`Software Engineer`}
+                <Text sx={{ textTransform: 'uppercase' }} weight={700} size={'md'} color="dimmed">
+                  <Typewriter
+                    onInit={async (typewriter) => {
+                      await typewriter.typeString('I am a ').changeDeleteSpeed(10)
+                      .pauseFor(800)
+                      .typeString(`<span style="color: #759EFF;">${strings[0]}</span>`)
+                      .pauseFor(500)
+                      .deleteChars(strings[0].length)
+                      .pauseFor(300)
+                      .typeString(`<span style="color: #D254FF;">${strings[1]}</span>`)
+                      .pauseFor(500)
+                      .deleteChars(strings[1].length)
+                      .pauseFor(300)
+                      .typeString(`<span style="color: #FFC932;">${strings[2]}</span>`)
+                      .pauseFor(500)
+                      .deleteChars(strings[2].length)
+                      .pauseFor(300)
+                      .typeString(`<span style="color: #FF871E;">${strings[3]}</span>`)
+                      .pauseFor(500)
+
+                      .start();
+                    }}/>
                 </Text>
                 <h1 className={classes.title}>
                   Jeffrey Guan

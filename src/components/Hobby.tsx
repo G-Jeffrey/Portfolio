@@ -9,6 +9,10 @@ const useStyles = createStyles((theme) => ({
   backgroundCTA: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
   },
+  btn_background:{
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
+    color: theme.colorScheme === 'dark' ? theme.white : theme.colors.dark[9]
+  }
 }));
 export const Hobby = () => {
   const [data, setData] = useState({});
@@ -49,9 +53,8 @@ export const Hobby = () => {
           </Card.Section>
           <Card.Section style={{margin: 20}}>
             <Center>
-            <Button component="a"
-              target="_blank" href='https://leetcode.com/Jeffreyg2240/' gradient={{ from: 'red', to: 'cyan' }}>
-              <Image src='./projects/icon/lc.png' width={30} /> Link
+            <Button component="a" target="_blank" href='https://leetcode.com/Jeffreyg2240/' className={classes.btn_background}>
+              <Image src='https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png' width={20} height={20}/>{'  '}Link
             </Button>
             </Center>
           </Card.Section>
