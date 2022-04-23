@@ -38,16 +38,35 @@ export const Project = () => {
                 />
                 <ProjectCard
                     image={[
-                        ['./projects/toki/landing.png', 'Landing Page'],
-                        ['./projects/toki/vendors.png', 'Vendors List'],
-                        ['./projects/toki/login.png', 'Login Page (Picture of Toki from NY MK Discord)'],
-                        ['./projects/toki/orders.png', 'Order Overview'],
-                        ['./projects/toki/filter_order.png', 'Filter Orders'],
-                        ['./projects/toki/add_order.png', 'Create Order'],
-                        ['./projects/toki/edit_order.png', 'Edit Order'],
-                        ['./projects/toki/items.png', 'Item Overview'],
-                        ['./projects/toki/items_filter.png', 'Filter Items'],
-                        ['./projects/toki/items.png', 'Profile Overview'],
+                        ['./projects/etit/home.png', 'Home Screen'],
+                        ['./projects/etit/search.png', 'Search Screen'],
+                        ['./projects/etit/restaurant.png', 'Restaurant Screen'],
+                        ['./projects/etit/reviews.png', 'Reviews Screen'],
+                        ['./projects/etit/leave-review.png', 'Leave Review Page']
+                    ]}
+                    key={'Eti.it'}
+                    title={'Et.it'}
+                    link={'https://devpost.com/software/jhk-pmz63c'}
+                    description={'An application that gamifies the process of food ordering, breaks the monopoly on food reviews held by companies like Yelp and UberEats, provides cheap, reliable, and verified reviews to restaurants, and uses a review system based on blockchain, completely independent of our company.'}
+                    reason={'Ascend Hackathon : Revive Small Business'}
+                    badges={[{ label: 'Second Place', icon: './projects/icon/second.svg' },
+                    { label: 'Bubble.io', icon: './projects/icon/bubble.png' },
+                    { label: 'SQLite', icon: './languages/sqlite.svg' },
+                    { label: 'Mobile', icon: './projects/icon/mobile.svg' },
+                    { label: 'Fully Functional', icon: './projects/icon/functional.svg' }]}
+                />
+                <ProjectCard
+                    image={[
+                        ['./projects/toki/landing.PNG', 'Landing Page'],
+                        ['./projects/toki/vendors.PNG', 'Vendors List'],
+                        ['./projects/toki/login.PNG', 'Login Page (Picture of Toki from NY MK Discord)'],
+                        ['./projects/toki/orders.PNG', 'Order Overview'],
+                        ['./projects/toki/filter_order.PNG', 'Filter Orders'],
+                        ['./projects/toki/add_order.PNG', 'Create Order'],
+                        ['./projects/toki/edit_order.PNG', 'Edit Order'],
+                        ['./projects/toki/items.PNG', 'Item Overview'],
+                        ['./projects/toki/items_filter.PNG', 'Filter Items'],
+                        ['./projects/toki/items.PNG', 'Profile Overview'],
                     ]}
                     key={'Toki'}
                     title={'Toki'}
@@ -66,34 +85,14 @@ export const Project = () => {
                 />
                 <ProjectCard
                     image={[
-                        ['./projects/etit/home.png', 'Home Screen'],
-                        ['./projects/etit/search.png', 'Search Screen'],
-                        ['./projects/etit/restaurant.png', 'Restaurant Screen'],
-                        ['./projects/etit/reviews.png', 'Reviews Screen'],
-                        ['./projects/etit/leave-review.png', 'Leave Review Page']
-                    ]}
-                    key={'Eti.it'}
-                    title={'Et.it'}
-                    link={'https://devpost.com/software/jhk-pmz63c'}
-                    description={'An application that gamifies the process of food ordering, breaks the monopoly on food reviews held by companies like Yelp and UberEats, provides cheap, reliable, and verified reviews to restaurants, and uses a review system based on blockchain, completely independent of our company.'}
-                    reason={'Ascend Hackathon : Revive Small Business'}
-                    badges={[{ label: 'Second Place', icon: './projects/icon/second.svg' },
-                    { label: 'Bubble.io', icon: './projects/icon/bubble.png' },
-                    { label: 'SQLite', icon: './languages/sqlite.svg' },
-                    { label: 'Mobile', icon: './projects/icon/mobile.svg' },
-                    { label: 'Fully Functional', icon: './projects/icon/functional.svg' }]}
-                />
-                
-                <ProjectCard
-                    image={[
-                        ['./projects/drop_by/landing.png', 'Landing Page'],
-                        ['./projects/drop_by/login.png', 'Login Page'],
-                        ['./projects/drop_by/events.png', 'Events Overview'],
-                        ['./projects/drop_by/host_event.png', 'Create an Event'],
-                        ['./projects/drop_by/map_overview.png', 'Maps'],
+                        ['./projects/drop_by/landing.PNG', 'Landing Page'],
+                        ['./projects/drop_by/login.PNG', 'Login Page'],
+                        ['./projects/drop_by/events.PNG', 'Events Overview'],
+                        ['./projects/drop_by/host_event.PNG', 'Create an Event'],
+                        ['./projects/drop_by/map_overview.PNG', 'Maps'],
                         ['./projects/drop_by/map_search.png', 'Maps: Query Location'],
-                        ['./projects/drop_by/event_info.png', 'Maps: Event Infomation'],
-                        ['./projects/drop_by/design_doc.png', 'Database Schema Document'],
+                        ['./projects/drop_by/event_info.PNG', 'Maps: Event Infomation'],
+                        ['./projects/drop_by/design_doc.PNG', 'Database Schema Document'],
                     ]}
                     key={'Drop By'}
                     title={'Drop By'}
