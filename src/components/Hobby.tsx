@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useEffect, useState } from 'react';
-import { Container, createStyles, SimpleGrid, Text, Card, Button, Image, Center, Box } from '@mantine/core';
+import { Container, createStyles, SimpleGrid, Text, Card, Button, Image, Center } from '@mantine/core';
 import { StatsSegments } from './LeetcodeStat';
 
 

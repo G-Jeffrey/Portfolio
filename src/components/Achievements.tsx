@@ -52,7 +52,7 @@ export const Achievement = () =>{
                                encryption methods, testing with Jest/Mocha.js, and CI/CD.`, url: './projects/icon/ctp.png', name: 'CUNY Tech Prep Bootcamp: Fullstack Web Development' },
                             {desc: `4 year engineer program.<br/>Developed light full-stack web apps with Javascript and Ruby/Sinatra.<br/>\
                             Deploying applications on PaaS/IaaS cloud services like Heroku and EC2 AWS`, url: './projects/icon/hstat.png', name: 'High School: Software Engineering Program' },
-                            {desc: "", url: './projects/icon/everup.jpg', name: 'EverUp Micro-credentials: Software Engineering' },
+                            {desc: "Learned and appliedindustry-standard software development life cycle processes and methologies: Agile, Waterfall, SCRUM, Pair Programming, Test Driven Development, and Unit Testing", url: './projects/icon/everup.jpg', name: 'EverUp Micro-credentials: Software Engineering' },
                             {link: 'https://devpost.com/software/skill-ly', desc: "Skill.ly: First place, Best Wild Card, Most Creative", url: './projects/icon/first.svg', name: 'CUNY Hackathon 2021' },
                             {link: 'https://devpost.com/software/jhk-pmz63c', desc: "Et.it: Second Place", url: './projects/icon/second.svg', name: 'Ascend Hackathon: Revive Small Businesses' },
                             {link: 'https://www.credly.com/badges/b3dcda62-ccf7-48c3-b680-89e175c6960b/public_url', desc: "October 2021 - October 2024", url: './projects/icon/aws.png', name: 'AWS Cloud Practitioner Certification (CLF-C01)' },

@@ -98,7 +98,7 @@ const useStyles = createStyles((theme) => (
 
 export function Title(props: any) {
   const { classes, cx } = useStyles();
-  const strings = ['Software Engineer', 'Web Developer', 'Fullstack Developer', 'Custom Mechanical Keyboard Enthusiast'];
+  const strings = ['Software Engineer', 'Web Developer', 'Fullstack Engineer', 'Custom Mechanical Keyboard Enthusiast'];
   return (
     <Element name="background" key={'title'} >
       <div className={classes.wrapper}>
@@ -168,11 +168,14 @@ export function Title(props: any) {
           <Group className={classes.controls}>
             <Button
               size="xl"
+              component="a"
+              target="_blank"
+              href='./Jeffrey Guan - Resume.pdf'
               className={classes.control}
               variant="gradient"
               gradient={props.theme === 'dark' ? { from: 'blue', to: 'cyan' } : { from: 'orange', to: 'yellow' }}
             >
-              Download PDF Resume
+              View PDF Resume
             </Button>
             <Button
               size="xl"

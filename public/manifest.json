@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Jeffrey's Portfolio",
+  "name": "Hi, welcome to my portifilo build in React, Typescript, and with Mantine UI",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "github.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "github.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "github.png",
       "type": "image/png",
       "sizes": "512x512"
     }
