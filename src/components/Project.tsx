@@ -57,7 +57,7 @@ export const Project = () => {
                 />
                 <ProjectCard
                     image={[
-                        ['./projects/toki/landing.PNG', 'Landing Page'],
+                        ['./projects/skilly/landing.png', 'Landing Page'],
                         ['./projects/toki/vendors.PNG', 'Vendors List'],
                         ['./projects/toki/login.PNG', 'Login Page (Picture of Toki from NY MK Discord)'],
                         ['./projects/toki/orders.PNG', 'Order Overview'],

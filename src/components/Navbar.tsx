@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { SimpleGrid, Group, createStyles, Navbar, useMantineColorScheme, Box, SegmentedControl, Center } from '@mantine/core';
+import React, { useState, useEffect } from 'react';
+import { Select, createStyles, Navbar, useMantineTheme, Box, SegmentedControl, Center, Group } from '@mantine/core';
+import { useMove } from '@mantine/hooks';
 import {
   School,
   Code,
@@ -9,10 +10,18 @@ import {
   Award,
   User,
   Sun,
-  Moon
+  Moon,
+  Volume
 } from 'tabler-icons-react';
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
+import { Link } from 'react-scroll'
+// Eager loading not needed, files are local and small enough
+// const Alpaca = new Audio("http://localhost:3000/Portfolio/audio/alpacas.m4a");
+// const Creampaca = new Audio("http://localhost:3000/Portfolio/audio/creampaca.mp3");
+// const Creamsicle = new Audio("http://localhost:3000/Portfolio/audio/creamsicles.m4a");
+// const HP = new Audio("http://localhost:3000/Portfolio/audio/hp.mp3");
+// const Ink = new Audio("http://localhost:3000/Portfolio/audio/inks.m4a");
+// const Jade = new Audio("http://localhost:3000/Portfolio/audio/jade.m4a");
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon');
   return {
@@ -77,8 +86,27 @@ const useStyles = createStyles((theme, _params, getRef) => {
       display: 'flex',
       alignItems: 'center',
       textDecoration: 'none'
+    },
+    thumb: {
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[3]
+        }`,
+      width: 28,
+      height: 22,
+      color: theme.colors.gray[5],
+      backgroundColor: theme.white,
+      borderRadius: theme.radius.sm,
+    },
+    volumeBar: {
+      width: `200px`,
+      height: 15,
+      backgroundColor:
+        theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
+      position: 'relative',
+      borderRadius: 100,
+      [theme.fn.smallerThan('lg')]: {
+        width: `115px`,
+      }
     }
-
   };
 });
 
@@ -91,9 +119,48 @@ const data = [
   { link: 'hobby', label: 'Hobbies', icon: Keyboard, icon2: null },
 
 ];
+const useAudio = (url: string) => {
+  const [audio, setAudio] = useState(new Audio(url));
+  audio.preload = "auto";
+  const [playing, togglePlay] = useState(true);
+  const [volume, setVolume] = useState(0.5);
+  const [source, setSource] = useState(url);
+  const toggle = () => togglePlay(!playing);
+  const adjustVolume = (new_vol: number) => {
+    setVolume(new_vol)
+    audio.volume = new_vol;
+    return;
+  }
+  useEffect(() => {
+    audio.src = source;
+    audio.play();
+    return;
+  },
+    [source]
+  );
+  useEffect(() => {
+    playing ? audio.play() : audio.pause();
+  },
+    [playing]
+  );
+  useEffect(() => {
+    audio.addEventListener('ended', () => togglePlay(false));
+    return () => {
+      audio.removeEventListener('ended', () => togglePlay(false));
+    };
+  }, []);
 
+  return [playing, toggle, volume, adjustVolume, source, setSource];
+};
 export const Nav = (props: any) => {
   const { classes, cx } = useStyles();
+  const [play, toggle, volume, adjustVolume, source, setSource] = useAudio('');
+  // toggleAudio;
+  const theme = useMantineTheme();
+  const { ref } = useMove(({ x }) => {
+    //@ts-ignore
+    adjustVolume(x)
+  });
   const [active, setActive] = useState('Background');
   const links = data.map((item) => (
     <div style={{ marginBottom: '5px' }} key={item.link}>
@@ -113,8 +180,59 @@ export const Nav = (props: any) => {
       <Navbar.Section grow>
         {links}
       </Navbar.Section>
-
+      <Navbar.Section>
+        <Select
+          label="Song"
+          placeholder="Pick one"
+          searchable
+          size='xs'
+          nothingFound="No options"
+          data={[
+            { value: './audio/alpacas.m4a', label: 'Alpaca', group: 'Typing Test' },
+            { value: './audio/creampaca.mp3', label: 'Creampaca', group: 'Typing Test' },
+            { value: './audio/creamsicles.m4a', label: 'Creamsicle', group: 'Typing Test' },
+            { value: './audio/hp.mp3', label: 'Holy Panda', group: 'Typing Test' },
+            { value: './audio/inks.mp3', label: 'Gateron Ink', group: 'Typing Test' },
+            { value: './audio/jade.m4a', label: 'Box Navy', group: 'Typing Test' },
+          ]}
+          onChange={(e) => {
+            // @ts-ignore
+            setSource(e)
+          }}
+        />
+        <Group position="center" style={{ marginTop: '20px', marginBottom: '10px' }}>
+          <Volume className={classes.linkIcon} />
+          <span
+            ref={ref}
+            className={classes.volumeBar}
+          >
+            <div
+              style={{
+                // @ts-ignore
+                width: `${volume * 100}%`,
+                height: 15,
+                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.blue[5] : theme.colors.blue[2],
+                borderTopLeftRadius: 100,
+                borderBottomLeftRadius: 100
+              }}
+            />
+            <div
+              style={{
+                position: 'absolute',
+                // @ts-ignore
+                left: `calc(${volume * 100}% - 8px)`,
+                top: 0,
+                width: 15,
+                height: 15,
+                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.blue[9] : theme.colors.blue[1],
+                borderRadius: 100
+              }}
+            />
+          </span>
+        </Group>
+      </Navbar.Section>
       <Navbar.Section className={classes.footer}>
+
         <SegmentedControl
           fullWidth={true}
           value={props.mode}
@@ -143,6 +261,6 @@ export const Nav = (props: any) => {
         <a className={classes.link} onClick={(event) => event.preventDefault()}  >
         </a>
       </Navbar.Section>
-    </Navbar>
+    </Navbar >
   );
 }

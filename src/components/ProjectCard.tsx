@@ -55,9 +55,9 @@ export const ProjectCard = ({ image, title, link, description, reason, badges }:
   return (
     <Card withBorder radius="md" p="md" className={classes.card} key={title}>
       <Card.Section className={classes.borderBottom}>
-        <Carousel interval={2000} infiniteLoop={true} swipeable={true} showThumbs={false}>
+        <Carousel interval={2000} infiniteLoop={true} swipeable={true} showThumbs={false} emulateTouch={true}>
           {image.map((img,i) =>
-            <div key={i}>
+            <div key={i} style={{marginLeft:'20px', marginRight: '20px'}}>
               <Image src={img[0]} fit='contain' height={700} key={img[1]}/>
               <p className="legend">{img[1]}</p>
             </div>
