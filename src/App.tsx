@@ -12,6 +12,7 @@ import { MantineProvider, ColorSchemeProvider, createStyles } from '@mantine/cor
 import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
 import { Element} from 'react-scroll';
 import { Achievement } from './components/Achievements';
+import { url } from 'inspector';
 
 
 const useStyles = createStyles((theme) => ({
@@ -26,7 +27,7 @@ const useStyles = createStyles((theme) => ({
       width: `100%`,
       marginLeft: `0`,
     },
-  }
+  },
 }));
 function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<"dark" | "light">({
@@ -62,7 +63,7 @@ function App() {
           <Element name="achievements" key={'achievements'} >
             {<Achievement />}
           </Element>
-          <Element name="hobby" key={'hobby'} >
+          <Element name="hobby" key={'hobby'}>
             {<Hobby />}
           </Element>
           {<Footer/>}

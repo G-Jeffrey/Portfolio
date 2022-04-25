@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Accordion, Text, createStyles, ThemeIcon } from '@mantine/core';
-import { Database, } from 'tabler-icons-react';
+import { Accordion, Text, createStyles, ThemeIcon, Container } from '@mantine/core';
 const BREAKPOINT = '@media (max-width: 755px)';
 const useStyles = createStyles((theme, _params, getRef) => {
     const control = getRef('control');
@@ -36,7 +35,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 export const Skills = () => {
     const { classes } = useStyles();
     return (
-        <div style={{paddingTop:'20px'}}>
+        <Container style={{paddingTop:'20px'}}>
             <Text style={{
                 textAlign: 'center', padding: '20px', fontSize: 40,
                 fontWeight: 900,
@@ -154,6 +153,6 @@ export const Skills = () => {
                     </div>
                 </Accordion.Item>
             </Accordion>
-        </div>
+        </Container>
     )
 }

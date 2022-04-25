@@ -127,8 +127,10 @@ const data = [
 const useAudio = (url: string) => {
   const [audio] = useState(new Audio(url));
   audio.preload = "auto";
-  const [playing, togglePlay] = useState(true);
-  const [volume, setVolume] = useState(0.3);
+  const [playing, togglePlay] = useState(false);
+  const [volume, setVolume] = useState(0.25);
+  audio.volume = 0.25;
+  audio.autoplay=true;
   const [source, setSource] = useState(url);
   const toggle = () => togglePlay(!playing);
   const adjustVolume = (new_vol: number) => {
@@ -138,7 +140,6 @@ const useAudio = (url: string) => {
   }
   useEffect(() => {
     audio.src = source;
-    console.log(source);
     audio.play();
     return;
   },
@@ -160,13 +161,18 @@ const useAudio = (url: string) => {
 };
 export const Nav = (props: any) => {
   const { classes, cx } = useStyles();
-  const [play, toggle, volume, adjustVolume, source, setSource] = useAudio('./audio/ghibli.mp3');
+  const [play, toggle, volume, adjustVolume, source, setSource] = useAudio('http://localhost:3000/Portfolio/audio/ghibli.mp3');
   // toggleAudio;
   const theme = useMantineTheme();
   const { ref } = useMove(({ x }) => {
     //@ts-ignore
     adjustVolume(x)
   });
+  // useEffect(()=>{
+  //   console.log('page loaded', source)
+  //   // @ts-ignore
+  //   toggle();
+  // }, [])
   const [active, setActive] = useState('Background');
   const links = data.map((item) => (
     <div style={{ marginBottom: '5px' }} key={item.link}>
@@ -203,22 +209,25 @@ export const Nav = (props: any) => {
               dropdownPosition="top"
               label="Audio"
               size='xs'
-              defaultValue={'./audio/ghibli.mp3'}
+              defaultValue={'http://localhost:3000/Portfolio/audio/ghibli.mp3'}
               // nothingFound="No options"
               data={[
-                { value: './audio/ghibli.mp3', label: 'Ghibli Jazz', group: 'Background Music' },
+                { value: 'http://localhost:3000/Portfolio/audio/ghibli.mp3', label: 'Ghibli Jazz', group: 'Background Music' },
                 { value: './audio/alpacas.m4a', label: 'Alpaca', group: 'Typing Test' },
+                { value: './audio/jades.m4a', label: 'Box Jade', group: 'Typing Test' },
                 { value: './audio/creams.mp3', label: 'Cream', group: 'Typing Test' },
-                { value: './audio/creampacas.mp3', label: 'Creampaca', group: 'Typing Test' },
                 { value: './audio/creamsicles.m4a', label: 'Creamsicle', group: 'Typing Test' },
+                { value: './audio/creampacas.mp3', label: 'Creampaca', group: 'Typing Test' },
                 { value: './audio/hp.mp3', label: 'Holy Panda', group: 'Typing Test' },
                 { value: './audio/inks.mp3', label: 'Gateron Ink', group: 'Typing Test' },
-                { value: './audio/jades.m4a', label: 'Box Navy', group: 'Typing Test' },
                 { value: './audio/mb_ks3.mp3', label: 'Milky Black KS-3', group: 'Typing Test' },
                 { value: './audio/vintage_blacks.mp3', label: 'Vintage Cherry Black', group: 'Typing Test' },
               ]}
               onChange={(e) => {
-                console.log(e)
+                if(!play){
+                  // @ts-ignore
+                  toggle();
+                }
                 // @ts-ignore
                 setSource(e)
               }}

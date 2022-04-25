@@ -8,7 +8,10 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1,
     fontSize: theme.fontSizes.sm,
   },
-
+  bg:{
+    border: theme.colorScheme ==='dark' ? `rgb(16, 17, 19)` : `rgb(52, 58, 64, 0.6)`,
+    backgroundColor: theme.colorScheme ==='dark' ? `rgba(16, 17, 19, 0.6)` : `rgba(52, 58, 64, 0.6)`,
+  },
   stat: {
     borderBottom: '3px solid',
     paddingBottom: 5,
@@ -26,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   icon: {
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[4],
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[2],
   },
 }));
 
@@ -54,13 +57,13 @@ export function StatsSegments({ total, diff, totalSolved, data }: StatsSegmentsP
   }));
 
   const descriptions = data.map((stat) => (
-    <div key={stat.label}>
-      <Box key={stat.label} sx={{ borderBottomColor: stat.color }} className={classes.stat}>
+    <div key={stat.label} >
+      <Box key={stat.label} sx={{ borderBottomColor: stat.color }} className={classes.stat} >
         <Text transform="uppercase" size="xs" color="dimmed" weight={700}>
           {stat.label}
         </Text>
 
-        <Group position="apart" align="flex-end" spacing={0}>
+        <Group position="apart" align="flex-end" spacing={0} >
           <Text weight={700}>{stat.count} <Text size='xs' color='dimmed' component='span'> / {totalSolved}</Text></Text>
           <Text color={stat.color} weight={700} size="sm" className={classes.statCount}>
             {stat.part}%
@@ -85,7 +88,7 @@ export function StatsSegments({ total, diff, totalSolved, data }: StatsSegmentsP
   ));
 
   return (
-    <Paper withBorder p="md" radius="md">
+    <Paper withBorder p="md" radius="md" className={classes.bg}>
       <Group position="apart">
         <Group align="flex-end" spacing="xs">
           <Text size="xl" weight={700}>

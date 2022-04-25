@@ -52,6 +52,7 @@ export const ProjectCard = ({ image, title, link, description, reason, badges }:
       <Image src={badge.icon} width={16} />
     </Badge>
   ));
+  console.log(theme.colors);
   return (
     <Card withBorder radius="md" p="md" className={classes.card} key={title}>
       <Card.Section className={classes.borderBottom}>
