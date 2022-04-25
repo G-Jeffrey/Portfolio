@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Select, createStyles, Navbar, useMantineTheme, Box, SegmentedControl, Center, Group } from '@mantine/core';
+import { Grid, Select, createStyles, Navbar, useMantineTheme, Box, SegmentedControl, Center, Group, ActionIcon } from '@mantine/core';
 import { useMove } from '@mantine/hooks';
 import {
   School,
@@ -11,7 +11,9 @@ import {
   User,
   Sun,
   Moon,
-  Volume
+  Volume,
+  PlayerPlay,
+  PlayerPause
 } from 'tabler-icons-react';
 
 import { Link } from 'react-scroll'
@@ -69,7 +71,10 @@ const useStyles = createStyles((theme, _params, getRef) => {
       color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
       marginRight: theme.spacing.sm,
     },
-
+    audioIcon: {
+      ref: icon,
+      color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
+    },
     linkActive: {
       '&, &:hover': {
         backgroundColor:
@@ -98,7 +103,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
     },
     volumeBar: {
       width: `200px`,
-      height: 15,
+      height: 10,
       backgroundColor:
         theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
       position: 'relative',
@@ -120,10 +125,10 @@ const data = [
 
 ];
 const useAudio = (url: string) => {
-  const [audio, setAudio] = useState(new Audio(url));
+  const [audio] = useState(new Audio(url));
   audio.preload = "auto";
   const [playing, togglePlay] = useState(true);
-  const [volume, setVolume] = useState(0.5);
+  const [volume, setVolume] = useState(0.3);
   const [source, setSource] = useState(url);
   const toggle = () => togglePlay(!playing);
   const adjustVolume = (new_vol: number) => {
@@ -133,6 +138,7 @@ const useAudio = (url: string) => {
   }
   useEffect(() => {
     audio.src = source;
+    console.log(source);
     audio.play();
     return;
   },
@@ -154,7 +160,7 @@ const useAudio = (url: string) => {
 };
 export const Nav = (props: any) => {
   const { classes, cx } = useStyles();
-  const [play, toggle, volume, adjustVolume, source, setSource] = useAudio('');
+  const [play, toggle, volume, adjustVolume, source, setSource] = useAudio('./audio/ghibli.mp3');
   // toggleAudio;
   const theme = useMantineTheme();
   const { ref } = useMove(({ x }) => {
@@ -181,27 +187,46 @@ export const Nav = (props: any) => {
         {links}
       </Navbar.Section>
       <Navbar.Section>
-        <Select
-          label="Song"
-          placeholder="Pick one"
-          searchable
-          size='xs'
-          nothingFound="No options"
-          data={[
-            { value: './audio/alpacas.m4a', label: 'Alpaca', group: 'Typing Test' },
-            { value: './audio/creampaca.mp3', label: 'Creampaca', group: 'Typing Test' },
-            { value: './audio/creamsicles.m4a', label: 'Creamsicle', group: 'Typing Test' },
-            { value: './audio/hp.mp3', label: 'Holy Panda', group: 'Typing Test' },
-            { value: './audio/inks.mp3', label: 'Gateron Ink', group: 'Typing Test' },
-            { value: './audio/jade.m4a', label: 'Box Navy', group: 'Typing Test' },
-          ]}
-          onChange={(e) => {
-            // @ts-ignore
-            setSource(e)
-          }}
-        />
-        <Group position="center" style={{ marginTop: '20px', marginBottom: '10px' }}>
-          <Volume className={classes.linkIcon} />
+        <Grid style={{ marginTop: '20px', marginBottom: '10px' }} grow>
+          <Grid.Col span={1} style={{marginTop: '25px'}}>
+            <ActionIcon
+              variant="default"
+              // @ts-ignore
+              onClick={toggle}
+              size={'lg'}
+            >
+              {play === true ? <PlayerPause className={classes.audioIcon} size={27} /> : <PlayerPlay className={classes.audioIcon} size={27} />}
+            </ActionIcon>
+          </Grid.Col>
+          <Grid.Col sm={8} md={8} lg={9}>
+            <Select
+              dropdownPosition="top"
+              label="Audio"
+              size='xs'
+              defaultValue={'./audio/ghibli.mp3'}
+              // nothingFound="No options"
+              data={[
+                { value: './audio/ghibli.mp3', label: 'Ghibli Jazz', group: 'Background Music' },
+                { value: './audio/alpacas.m4a', label: 'Alpaca', group: 'Typing Test' },
+                { value: './audio/creams.mp3', label: 'Cream', group: 'Typing Test' },
+                { value: './audio/creampacas.mp3', label: 'Creampaca', group: 'Typing Test' },
+                { value: './audio/creamsicles.m4a', label: 'Creamsicle', group: 'Typing Test' },
+                { value: './audio/hp.mp3', label: 'Holy Panda', group: 'Typing Test' },
+                { value: './audio/inks.mp3', label: 'Gateron Ink', group: 'Typing Test' },
+                { value: './audio/jades.m4a', label: 'Box Navy', group: 'Typing Test' },
+                { value: './audio/mb_ks3.mp3', label: 'Milky Black KS-3', group: 'Typing Test' },
+                { value: './audio/vintage_blacks.mp3', label: 'Vintage Cherry Black', group: 'Typing Test' },
+              ]}
+              onChange={(e) => {
+                console.log(e)
+                // @ts-ignore
+                setSource(e)
+              }}
+            />
+          </Grid.Col>
+        </Grid>
+        <Group position="center" style={{ marginBottom: '10px' }}>
+          <Volume className={classes.audioIcon} size={23} />
           <span
             ref={ref}
             className={classes.volumeBar}
@@ -209,8 +234,8 @@ export const Nav = (props: any) => {
             <div
               style={{
                 // @ts-ignore
-                width: `${volume * 100}%`,
-                height: 15,
+                width: `${volume * 99}%`,
+                height: 10,
                 backgroundColor: theme.colorScheme === 'dark' ? theme.colors.blue[5] : theme.colors.blue[2],
                 borderTopLeftRadius: 100,
                 borderBottomLeftRadius: 100
@@ -220,10 +245,10 @@ export const Nav = (props: any) => {
               style={{
                 position: 'absolute',
                 // @ts-ignore
-                left: `calc(${volume * 100}% - 8px)`,
+                left: `calc(${volume * 100}% - 7px)`,
                 top: 0,
-                width: 15,
-                height: 15,
+                width: 10,
+                height: 10,
                 backgroundColor: theme.colorScheme === 'dark' ? theme.colors.blue[9] : theme.colors.blue[1],
                 borderRadius: 100
               }}
