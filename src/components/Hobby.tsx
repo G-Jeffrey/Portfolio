@@ -20,8 +20,8 @@ const useStyles = createStyles((theme) => ({
     backgroundSize: '200vw',
     backgroundPosition: `200px 55vh`,
     backgroundAttachment: 'fixed',
-    paddingTop: '30px',
-    paddingnBottom: '20px',
+    paddingTop: '4vh',
+    paddingBottom: '5vh',
   },
   background: {
     paddingBottom: '50px'
@@ -52,7 +52,9 @@ export const Hobby = () => {
         ]}>
           <Card className={classes.backgroundCTA}>
             <Card.Section>
+              {console.log(data)}
               {
+                
                 data['status'] === 'success' ?
                   <StatsSegments total={String(data.totalQuestions)} diff={23} totalSolved={String(data.totalSolved)}
                     data={[

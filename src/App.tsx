@@ -67,7 +67,6 @@ function App() {
             {<Hobby />}
           </Element>
           {<Footer/>}
-
         </div>
       </MantineProvider>
     </ColorSchemeProvider >

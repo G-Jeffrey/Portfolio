@@ -161,7 +161,7 @@ const useAudio = (url: string) => {
 };
 export const Nav = (props: any) => {
   const { classes, cx } = useStyles();
-  const [play, toggle, volume, adjustVolume, source, setSource] = useAudio('http://localhost:3000/Portfolio/audio/ghibli.mp3');
+  const [play, toggle, volume, adjustVolume, source, setSource] = useAudio('./audio/ghibli.mp3');
   // toggleAudio;
   const theme = useMantineTheme();
   const { ref } = useMove(({ x }) => {
@@ -209,10 +209,10 @@ export const Nav = (props: any) => {
               dropdownPosition="top"
               label="Audio"
               size='xs'
-              defaultValue={'http://localhost:3000/Portfolio/audio/ghibli.mp3'}
+              defaultValue={'./Portfolio/audio/ghibli.mp3'}
               // nothingFound="No options"
               data={[
-                { value: 'http://localhost:3000/Portfolio/audio/ghibli.mp3', label: 'Ghibli Jazz', group: 'Background Music' },
+                { value: './Portfolio/audio/ghibli.mp3', label: 'Ghibli Jazz', group: 'Background Music' },
                 { value: './audio/alpacas.m4a', label: 'Alpaca', group: 'Typing Test' },
                 { value: './audio/jades.m4a', label: 'Box Jade', group: 'Typing Test' },
                 { value: './audio/creams.mp3', label: 'Cream', group: 'Typing Test' },

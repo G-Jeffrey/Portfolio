@@ -1,11 +1,13 @@
 import React from 'react';
 import { createStyles, Text, Container, SimpleGrid } from "@mantine/core";
 import { ProjectCard } from './ProjectCard';
+
 const useStyles = createStyles((theme, _params, getRef) => ({
 
 }));
 
 export const Project = () => {
+    const {classes} = useStyles();
     return (
         <div style={{ margin: 40, marginTop: 0 }}>
             <Text style={{
