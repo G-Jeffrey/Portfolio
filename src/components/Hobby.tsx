@@ -15,7 +15,7 @@ const useStyles = createStyles((theme) => ({
   },
   backgroundImg:{
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.white,
-    backgroundImage: `url("http://localhost:3000/Portfolio/background/Hobby.svg")`,
+    backgroundImage: `url("./background/Hobby.svg")`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '200vw',
     backgroundPosition: `200px 55vh`,
