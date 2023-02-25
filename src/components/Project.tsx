@@ -16,16 +16,11 @@ export const Project = () => {
                 lineHeight: 1.1
             }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Projects </Text>
             <Container>
-                <SimpleGrid cols={2} spacing={20} breakpoints={[
-                    { maxWidth: 'xl', cols: 2, spacing: 'xl' },
-                    { maxWidth: 'lg', cols: 1, spacing: 'lg' },
-                    { maxWidth: 'md', cols: 1, spacing: 'md' },
-                ]}
-                >
+                <SimpleGrid cols={1}>
 
                     <ProjectCard
                         image={[
-                            ['./projects/skilly/landing.png', 'Landing Page'],
+                            ['https://g-jeffrey.github.io/Portfolio/projects/skilly/landing.png', 'Landing Page'],
                             ['./projects/skilly/features.png', 'Features'],
                             ['./projects/skilly/login.png', 'Login Page'],
                             ['./projects/skilly/profile.png', 'Profile'],

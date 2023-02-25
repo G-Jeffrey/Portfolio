@@ -11,7 +11,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
             flexWrap: 'wrap'
         },
         icon: {
-            width: 180,
+            width: 1800,
             height: 130,
             marginTop: 20,
             marginBottom: 20,
@@ -32,8 +32,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
         },
     }
 });
-export const Skills = () => {
-    const { classes } = useStyles();
+export const Skills = (props: any) => {
+    const { classes, cx } = useStyles();
     return (
         <Container style={{paddingTop:'20px'}}>
             <Text style={{
@@ -48,8 +48,8 @@ export const Skills = () => {
                 <Accordion.Item
                     label="Programming Langauges"
                     icon={
-                        <ThemeIcon variant="light">
-                            <img src='./languages/language.svg' />
+                        <ThemeIcon variant="gradient" gradient={props.theme==='dark' ? { from: 'indigo', to: 'cyan' }: { from: 'orange', to: 'yellow' }}>
+                            <img src='https://g-jeffrey.github.io/Portfolio/languages/language.svg' />
                         </ThemeIcon>
                     }
                 >
@@ -65,8 +65,8 @@ export const Skills = () => {
                 <Accordion.Item
                     label="Frameworks"
                     icon={
-                        <ThemeIcon color={'violet'} variant="light">
-                            <img src='./languages/framework.svg' />
+                        <ThemeIcon variant="gradient" gradient={props.theme==='dark' ? { from: 'indigo', to: 'cyan' }: { from: 'orange', to: 'yellow' }}>
+                            <img src='https://g-jeffrey.github.io/Portfolio/languages/framework.svg' />
                         </ThemeIcon>
                     }
                 >
@@ -82,8 +82,8 @@ export const Skills = () => {
                 <Accordion.Item
                     label="Web Development"
                     icon={
-                        <ThemeIcon color={'red'} variant="light">
-                            <img src='./languages/web_dev.svg' />
+                        <ThemeIcon variant="gradient" gradient={props.theme==='dark' ? { from: 'indigo', to: 'cyan' }: { from: 'orange', to: 'yellow' }}>
+                            <img src='https://g-jeffrey.github.io/Portfolio/languages/web_dev.svg' />
                         </ThemeIcon>
                     }
                 >
@@ -103,8 +103,8 @@ export const Skills = () => {
                 <Accordion.Item
                     label="Databases"
                     icon={
-                        <ThemeIcon color={'orange'} variant="light">
-                            <img src='./languages/database.svg' />
+                        <ThemeIcon variant="gradient" gradient={props.theme==='dark' ? { from: 'indigo', to: 'cyan' }: { from: 'orange', to: 'yellow' }}>
+                            <img src='https://g-jeffrey.github.io/Portfolio/languages/database.svg' />
                         </ThemeIcon>
                     }
                 >
@@ -117,8 +117,9 @@ export const Skills = () => {
                 <Accordion.Item
                     label="Others Techincal Skills"
                     icon={
-                        <ThemeIcon color={'yellow'} variant="light">
-                            <img src='./languages/other.svg' />
+                        
+                        <ThemeIcon variant="gradient" gradient={props.theme==='dark' ? { from: 'indigo', to: 'cyan' }: { from: 'orange', to: 'yellow' }}>
+                            <img src='https://g-jeffrey.github.io/Portfolio/languages/other.svg' />
                         </ThemeIcon>
                     }
                 >
@@ -134,11 +135,12 @@ export const Skills = () => {
 
                     </div>
                 </Accordion.Item>
+                {console.log("classes", props.theme)}
                 <Accordion.Item
                     label="Soft Skills"
                     icon={
-                        <ThemeIcon color="gray" variant="light">
-                            <img src='./languages/skills.svg' />
+                        <ThemeIcon variant="gradient" gradient={props.theme==='dark' ? { from: 'indigo', to: 'cyan' }: { from: 'orange', to: 'yellow' }}>
+                            <img src='https://g-jeffrey.github.io/Portfolio/languages/skills.svg' />
                         </ThemeIcon>
                     }
                 >

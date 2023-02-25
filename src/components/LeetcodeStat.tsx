@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
   },
   stat: {
     borderBottom: '3px solid',
-    paddingBottom: 5,
+    paddingBottom: 3,
   },
 
   statCount: {

@@ -29,7 +29,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
   return {
     parent: {
       zIndex: 1,
-      opacity: 0.9,
+      opacity: 1,
       [theme.fn.smallerThan('sm')]: {
         zIndex: -1,
         opacity: 0,
@@ -213,6 +213,7 @@ export const Nav = (props: any) => {
               // nothingFound="No options"
               data={[
                 { value: './Portfolio/audio/ghibli.mp3', label: 'Ghibli Jazz', group: 'Background Music' },
+                { value: './Portfolio/audio/symphony40.mp3', label: 'Symphony 40 - Mozart', group: 'Background Music' },
                 { value: './audio/alpacas.m4a', label: 'Alpaca', group: 'Typing Test' },
                 { value: './audio/jades.m4a', label: 'Box Jade', group: 'Typing Test' },
                 { value: './audio/creams.mp3', label: 'Cream', group: 'Typing Test' },

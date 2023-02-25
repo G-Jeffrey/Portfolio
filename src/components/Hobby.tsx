@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, createStyles, SimpleGrid, Text, Card, Button, Image, Center } from '@mantine/core';
 import { StatsSegments } from './LeetcodeStat';
+import { Keyboards } from './Keyboards';
 
 
 const useStyles = createStyles((theme) => ({
@@ -13,9 +14,9 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
     color: theme.colorScheme === 'dark' ? theme.white : theme.colors.dark[9]
   },
-  backgroundImg:{
+  backgroundImg: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.white,
-    backgroundImage: `url("./background/Hobby.svg")`,
+    backgroundImage: `url("https://g-jeffrey.github.io/Portfolio/background/Hobby.svg")`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: '200vw',
     backgroundPosition: `200px 55vh`,
@@ -26,7 +27,7 @@ const useStyles = createStyles((theme) => ({
   background: {
     paddingBottom: '50px'
   },
-  
+
 }));
 export const Hobby = () => {
   const [data, setData] = useState({});
@@ -45,7 +46,11 @@ export const Hobby = () => {
           fontWeight: 900,
           lineHeight: 1.1
         }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Hobbies </Text>
-
+        </Container>
+      {/* <div>
+        <Keyboards />
+      </div> */}
+      <Container className={classes.background}>
         <SimpleGrid cols={2} breakpoints={[
           { maxWidth: 'xl', cols: 2, spacing: 'md' },
           { maxWidth: 'md', cols: 1, spacing: 'sm' },
@@ -54,7 +59,7 @@ export const Hobby = () => {
             <Card.Section>
               {console.log(data)}
               {
-                
+
                 data['status'] === 'success' ?
                   <StatsSegments total={String(data.totalQuestions)} diff={23} totalSolved={String(data.totalSolved)}
                     data={[
@@ -76,13 +81,13 @@ export const Hobby = () => {
                 <Button component="a" target="_blank" href='https://leetcode.com/Jeffreyg2240/' className={classes.btn_background}>
                   <Image src='https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png' width={20} height={20} />{'  '}Link
                 </Button>
+
               </Center>
             </Card.Section>
-
           </Card>
         </SimpleGrid>
       </Container>
       
-      </div>
+    </div>
   )
 }

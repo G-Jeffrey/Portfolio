@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Nav } from "./components/Navbar"
 import { Title } from './components/Title';
@@ -12,7 +11,9 @@ import { MantineProvider, ColorSchemeProvider, createStyles } from '@mantine/cor
 import { useToggle, useLocalStorage, useHotkeys } from '@mantine/hooks';
 import { Element} from 'react-scroll';
 import { Achievement } from './components/Achievements';
+
 import { url } from 'inspector';
+import { Key } from 'tabler-icons-react';
 
 
 const useStyles = createStyles((theme) => ({
@@ -47,15 +48,15 @@ function App() {
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleMode}>
       <MantineProvider theme={{ colorScheme }}>
         <Nav mode={colorScheme} toggleNav={toggleNav} />
-        <div className={classes.responsive} style={{ backgroundColor: colorScheme === 'dark' ? "#25262b" : "#f8f9fa" }} >
+        <div className={classes.responsive} style={{ backgroundColor: colorScheme === 'dark' ? "#25262b" : "#f8f9fa" }} draggable="false">
           <Element name="background" key={'title'} >
             {<Title theme={colorScheme} />}
           </Element>
           <Element name="education" key={'education'}>
             {<Education />}
           </Element>
-          <Element name="skills" key={'skills'}>
-            {<Skills />}
+          <Element name="skills" key={'skills'} >
+            {<Skills theme={colorScheme}/>}
           </Element>
           <Element name="projects" key={'project'} >
             {<Project />} 
