@@ -1,6 +1,6 @@
 import React from 'react';
-import { createStyles, RingProgress, Progress, Box, Text, Group, Paper, SimpleGrid, Image, Button } from '@mantine/core';
-import { ArrowUpRight, DeviceAnalytics } from 'tabler-icons-react';
+import { createStyles, RingProgress, Progress, Box, Text, Group, Paper, SimpleGrid, Image, Button, Center } from '@mantine/core';
+import { ArrowUpRight } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
   progressLabel: {
@@ -8,9 +8,13 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1,
     fontSize: theme.fontSizes.sm,
   },
-  bg:{
-    border: theme.colorScheme ==='dark' ? `rgb(16, 17, 19)` : `rgb(52, 58, 64, 0.6)`,
-    backgroundColor: theme.colorScheme ==='dark' ? `rgba(16, 17, 19, 0.6)` : `rgba(52, 58, 64, 0.6)`,
+  btn_background: {
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
+    color: theme.colorScheme === 'dark' ? theme.white : theme.colors.dark[9]
+  },
+  bg: {
+    border: theme.colorScheme === 'dark' ? `rgb(16, 17, 19)` : `rgb(52, 58, 64, 0.6)`,
+    backgroundColor: theme.colorScheme === 'dark' ? `rgba(16, 17, 19, 0.6)` : `rgba(52, 58, 64, 0.6)`,
   },
   stat: {
     borderBottom: '3px solid',
@@ -99,7 +103,11 @@ export function StatsSegments({ total, diff, totalSolved, data }: StatsSegmentsP
             <ArrowUpRight size={16} style={{ marginBottom: 4 }} />
           </Text>
         </Group>
-        <Image src='./projects/icon/leetcode.png' width={100} />
+        {/* <Center> */}
+          <Button component="a" target="_blank" href='https://leetcode.com/Jeffreyg2240/' className={classes.btn_background}>
+            <Image src='https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png' width={20} height={20} />&nbsp;Leetcode
+          </Button>
+        {/* </Center> */}
       </Group>
 
       <Text color="dimmed" size="sm">

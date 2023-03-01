@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Accordion, Text, createStyles, ThemeIcon, Container } from '@mantine/core';
+import { Accordion, Text, createStyles, ThemeIcon, Container, Grid } from '@mantine/core';
 const BREAKPOINT = '@media (max-width: 755px)';
 const useStyles = createStyles((theme, _params, getRef) => {
     const control = getRef('control');
@@ -8,10 +8,11 @@ const useStyles = createStyles((theme, _params, getRef) => {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-evenly',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            
         },
         icon: {
-            width: 1800,
+            width: 180,
             height: 130,
             marginTop: 20,
             marginBottom: 20,
@@ -35,7 +36,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
 export const Skills = (props: any) => {
     const { classes, cx } = useStyles();
     return (
-        <Container style={{paddingTop:'20px'}}>
+        <Container style={{paddingTop:'20px',position:'relative',zIndex:5}}>
             <Text style={{
                 textAlign: 'center', padding: '20px', fontSize: 40,
                 fontWeight: 900,
@@ -44,7 +45,7 @@ export const Skills = (props: any) => {
             <Accordion classNames={{
                 item: classes.item,
                 control: classes.control,
-            }} iconSize={30} disableIconRotation>
+            }} iconSize={30}>
                 <Accordion.Item
                     label="Programming Langauges"
                     icon={
@@ -54,13 +55,13 @@ export const Skills = (props: any) => {
                     }
                 >
                     <div className={classes.centerize}>
-                        <img src='./languages/cpp.svg' className={classes.icon} />
-                        <img src='./languages/java.svg' className={classes.icon} />
-                        <img src='./languages/js.svg' className={classes.icon} />
-                        <img src='./languages/ts.svg' className={classes.icon} />
-                        <img src='./languages/python.svg' className={classes.icon} />
-                        <img src='./languages/ruby.svg' className={classes.icon} />
-                    </div>
+                        <img src='https://g-jeffrey.github.io/Portfolio/languages/cpp.svg' className={classes.icon} />
+                        <img src='https://g-jeffrey.github.io/Portfolio/languages/java.svg' className={classes.icon} />
+                        <img src='https://g-jeffrey.github.io/Portfolio/languages/js.svg' className={classes.icon} />
+                        <img src='https://g-jeffrey.github.io/Portfolio/languages/ts.svg' className={classes.icon} />
+                        <img src='https://g-jeffrey.github.io/Portfolio/languages/python.svg' className={classes.icon} />
+                        <img src='https://g-jeffrey.github.io/Portfolio/languages/ruby.svg' className={classes.icon} />
+                    </div>                  
                 </Accordion.Item>
                 <Accordion.Item
                     label="Frameworks"
@@ -112,6 +113,7 @@ export const Skills = (props: any) => {
                         <img src='./languages/mysql.svg' className={classes.icon} alt='mysql' />
                         <img src='./languages/postgres.svg' className={classes.icon} alt='postgresql' />
                         <img src='./languages/sqlite.svg' className={classes.icon} alt='sqllite' />
+                        <img src='./languages/firebase.svg' className={classes.icon} alt='firebase' />
                     </div>
                 </Accordion.Item>
                 <Accordion.Item
@@ -126,6 +128,7 @@ export const Skills = (props: any) => {
                     <div className={classes.centerize}>
                         <img src='./languages/aws.svg' className={classes.icon} alt='aws' />
                         <img src='./languages/azure.svg' className={classes.icon} alt='azure' />
+                        <img src='./languages/kafka.svg' className={classes.icon} alt='kafka' />
                         <img src='./languages/docker.svg' className={classes.icon} alt='docker' />
                         <img src='./languages/git.svg' className={classes.icon} alt='git' />
                         <img src='./languages/github.svg' className={classes.icon} alt='github' />
@@ -135,7 +138,6 @@ export const Skills = (props: any) => {
 
                     </div>
                 </Accordion.Item>
-                {console.log("classes", props.theme)}
                 <Accordion.Item
                     label="Soft Skills"
                     icon={

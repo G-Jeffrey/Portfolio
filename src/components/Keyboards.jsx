@@ -120,15 +120,11 @@ export const Keyboards = () => {
                                 
                 <img className="image" src="https://cdn.discordapp.com/attachments/565880720329801728/758413329101225994/CL9A7485.jpg" draggable="false" />
                 <img className="image" src="https://i.redd.it/unwf07wtezy41.jpg" draggable="false" />
-                <img className="image" src="" draggable="false" />
-                <img className="image" src="" draggable="false" />
                 <img className="image" src="https://cdn.discordapp.com/attachments/326293819366834187/1049791993028558868/image0.jpg" draggable="false" />
                 <img className="image" src="https://images.squarespace-cdn.com/content/v1/5f68da90297b94613c756dd6/1658334075609-0G5XV7ZT0XX3L6EMLN66/LXI05313+1.jpg?format=1500w" draggable="false" />
                 <img className="image" src="https://i.imgur.com/Q7JqGk6.jpg" draggable="false" />
                 <img className="image" src="https://i.imgur.com/0eeffxx.jpg" draggable="false" />
                 <img className="image" src="https://i.imgur.com/GYLYMqO.jpeg" draggable="false" />
-                <img className="image" src="" draggable="false" />
-                <img className="image" src="" draggable="false" />
 
             </div>
         </div>

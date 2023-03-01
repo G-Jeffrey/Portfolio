@@ -28,12 +28,13 @@ const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon');
   return {
     parent: {
-      zIndex: 1,
+      zIndex: 6,
       opacity: 1,
-      [theme.fn.smallerThan('sm')]: {
+      [theme.fn.smallerThan('md')]: {
         zIndex: -1,
         opacity: 0,
         width: 0,
+      
       },
     },
     footer: {
@@ -64,12 +65,15 @@ const useStyles = createStyles((theme, _params, getRef) => {
           color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         },
       },
+      [theme.fn.smallerThan('lg')]: {
+        padding: '2px 2px',
+      }
     },
 
     linkIcon: {
       ref: icon,
       color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
-      marginRight: theme.spacing.sm,
+      marginRight: theme.spacing.xs,
     },
     audioIcon: {
       ref: icon,
@@ -90,7 +94,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
     removeMargin: {
       display: 'flex',
       alignItems: 'center',
-      textDecoration: 'none'
+      textDecoration: 'none',
     },
     thumb: {
       border: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[3]
@@ -111,7 +115,16 @@ const useStyles = createStyles((theme, _params, getRef) => {
       [theme.fn.smallerThan('lg')]: {
         width: `115px`,
       }
-    }
+    },
+    selectFont: {
+      [theme.fn.smallerThan('lg')]: {
+        fontSize: 10,
+      },
+    },
+    adjustSize:{
+      marginBottom: '5px',
+      
+    },
   };
 });
 
@@ -130,7 +143,7 @@ const useAudio = (url: string) => {
   const [playing, togglePlay] = useState(false);
   const [volume, setVolume] = useState(0.25);
   audio.volume = 0.25;
-  audio.autoplay=true;
+  audio.autoplay=false;
   const [source, setSource] = useState(url);
   const toggle = () => togglePlay(!playing);
   const adjustVolume = (new_vol: number) => {
@@ -175,20 +188,19 @@ export const Nav = (props: any) => {
   // }, [])
   const [active, setActive] = useState('Background');
   const links = data.map((item) => (
-    <div style={{ marginBottom: '5px' }} key={item.link}>
+    <div key={item.link} className = {classes.adjustSize}>
       <Link activeClass="active" to={item.link} smooth={true} spy={true} duration={400} href={item.link}
         onSetActive={() => setActive(item.label)} isDynamic={true} hashSpy={true}
         className={cx(classes.link, { [classes.linkActive]: item.label === active })}>
         <span className={cx(classes.removeMargin)}>
           <item.icon className={classes.linkIcon}></item.icon>
-          <span>{item.label}</span>
+          <span className={classes.selectFont}>{item.label}</span>
         </span>
       </Link >
     </div>
   ));
   return (
     <Navbar className={classes.parent} height={'100vh'} width={{ sm: '200px', lg: '300px' }} p="md" key={props.mode} fixed>
-
       <Navbar.Section grow>
         {links}
       </Navbar.Section>
@@ -208,9 +220,8 @@ export const Nav = (props: any) => {
             <Select
               dropdownPosition="top"
               label="Audio"
-              size='xs'
+              size={'xs'}
               defaultValue={'./Portfolio/audio/ghibli.mp3'}
-              // nothingFound="No options"
               data={[
                 { value: './Portfolio/audio/ghibli.mp3', label: 'Ghibli Jazz', group: 'Background Music' },
                 { value: './Portfolio/audio/symphony40.mp3', label: 'Symphony 40 - Mozart', group: 'Background Music' },
@@ -232,6 +243,7 @@ export const Nav = (props: any) => {
                 // @ts-ignore
                 setSource(e)
               }}
+              
             />
           </Grid.Col>
         </Grid>

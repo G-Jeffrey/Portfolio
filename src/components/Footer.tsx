@@ -4,10 +4,12 @@ import { BrandGithub, BrandYoutube, BrandLinkedin } from 'tabler-icons-react';
 const year = new Date().getFullYear();
 const useStyles = createStyles((theme) => ({
     footer: {
+        position: 'relative',
         marginTop: 0, 
         borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]}`,
         backgroundColor: `${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]}`,
-        color:  `${theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7]}`
+        color:  `${theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7]}`,
+        zIndex: 5
     },
 
     inner: {
@@ -20,7 +22,6 @@ const useStyles = createStyles((theme) => ({
             flexDirection: 'column',
         },
     },
-
     links: {
         [theme.fn.smallerThan('xs')]: {
             marginTop: theme.spacing.md,

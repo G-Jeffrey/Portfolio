@@ -16,7 +16,9 @@ const useStyles = createStyles((theme, _params, getRef) => {
             color: "#fff"
         },
         background: {
-            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+            zIndex:4,
+            position: 'relative',
+            // backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
             color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         },
         header: {
@@ -31,7 +33,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
         date_text: {
             color: theme.colorScheme === 'dark' ? theme.colors.gray[0] : theme.colors.gray[9]
         },
-        invis:{
+        invis: {
             opacity: 0,
             zIndex: -1
         }
@@ -54,6 +56,22 @@ export const Education = () => {
             <VerticalTimeline animate={true} lineColor={colorScheme === 'dark' ? colors.dark[1] : colors.gray[4]}>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
+                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
+                    contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
+                    date="Sept 2022 - Sept 2022"
+                    dateClassName={classes.date_text}
+                    iconStyle={{ background: colorScheme === 'dark' ? "#f76707" : "#d9480f", color: '#fff' }}
+                    icon={<School />}
+                >
+                    <h3 className="vertical-timeline-element-title">Software Engineer II (L3)</h3>
+                    <h4 className="vertical-timeline-element-subtitle"><a className={classes.link} href="https://cunytechprep.nyc/"
+                    >Google : YouTube</a></h4>
+                    <p style={{fontSize:12}}>
+                        The interview started in February and matched in July with YouTube. The offer was rescinded in September during Google's hiring freeze due to a loss in headcount. 
+                    </p>
+                </VerticalTimelineElement>
+                <VerticalTimelineElement
+                    className="vertical-timeline-element--work"
                     contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="Sept 2021 - May 2022"
@@ -69,8 +87,8 @@ export const Education = () => {
                     </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
-                    className=""
-                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
+                    className="vertical-timeline-element--work"
+                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="June 2021 - October 2021"
                     dateClassName={classes.date_text}
@@ -79,15 +97,15 @@ export const Education = () => {
                 >
                     <h3 className="vertical-timeline-element-title">Software Engineering Assosiate</h3>
                     <h4 className="vertical-timeline-element-subtitle"><a className={classes.link} href="https://freshair.org/">The Fresh Air Funds</a></h4>
-                    <p> Research and Development, IT&amp;S
+                    <p> Research and Development
                     </p>
                 </VerticalTimelineElement>
                 <div></div>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
-                    date="Sept 2019 - May 2022"
+                    date="Dec 2020 - Feb 2021"
                     dateClassName={classes.date_text}
                     iconStyle={{ background: colorScheme === 'dark' ? "#f76707" : "#d9480f", color: '#fff' }}
                     icon={<Tie />}
@@ -96,12 +114,12 @@ export const Education = () => {
                     <h4 className="vertical-timeline-element-subtitle"><a className={classes.link} href="https://www.cuny.edu/jobs-ceo-council/">
                         EverUp </a></h4>
                     <p>
-                    Micro-Credentials, Web Development, Software Lifecycle
+                        Micro-Credentials, Web Development, Software Lifecycle
                     </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="Sept 2019 - May 2022"
                     dateClassName={classes.date_text}
@@ -116,8 +134,8 @@ export const Education = () => {
                     </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
-                    className=""
-                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
+                    className="vertical-timeline-element--work"
+                    contentStyle={{ background: colorScheme === 'dark' ? "#ffc078" : "#fd7e14", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="June 2016 - May 2019"
                     dateClassName={classes.date_text}
@@ -131,7 +149,7 @@ export const Education = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px'  }}
+                    contentStyle={{ background: colorScheme === 'dark' ? "#74c0fc" : "#1c7ed6", color: '#fff', boxShadow: 'none', borderRadius: '10px' }}
                     contentArrowStyle={{ borderRight: `7px solid ${colors.gray[4]}` }}
                     date="Sept 2015 - May 2019"
                     dateClassName={classes.date_text}
@@ -139,11 +157,11 @@ export const Education = () => {
                     icon={<School />}
                 >
                     <h3 className="vertical-timeline-element-title">Software Engineering Program</h3>
-                    <h4 className="vertical-timeline-element-subtitle">
-                        <a className={classes.link} href="https://hstatsep.github.io/">HSTAT</a>
-                    </h4>
+                    <h6 className="vertical-timeline-element-subtitle">
+                        <a className={classes.link} href="https://hstatsep.github.io/">High School of Telecommunications Arts and Technology</a>
+                    </h6>
                     <p>
-                        High School, 4-year daily program
+                        High School, 4-year Software Engineering Class
                     </p>
                 </VerticalTimelineElement>
             </VerticalTimeline>

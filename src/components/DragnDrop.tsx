@@ -73,10 +73,13 @@ export function DndList({ data }: DndListProps) {
 
   return (
     <DragDropContext
-      onDragEnd={({ destination, source }) =>
+      onDragEnd={({ destination, source }) =>{
+        if(!destination || !source){
+          return;
+        }
         // @ts-ignore:next-line
-        handlers.reorder({ from: source.index, to: destination.index })
-      }
+        handlers.reorder({ from: source.index, to: destination.index } )
+      }}
     >
       <Droppable droppableId="dnd-list" direction="vertical">
         {(provided) => (

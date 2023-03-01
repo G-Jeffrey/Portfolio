@@ -38,14 +38,14 @@ interface DndListProps {
 
 export const Achievement = () =>{
     return (
-        <Container>
+        <Container style={{position:'relative', zIndex:5, paddingBottom: '20px'}}>
             <Text style={{
                 textAlign: 'center', padding: '20px', fontSize: 40, paddingBottom: '0px',
                 fontWeight: 900,
                 lineHeight: 1.1
             }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Achievements </Text>
             <Text style={{textAlign: 'center', paddingBottom: '20px'}} color="dimmed" size="sm">Drag n Drag!</Text>
-            <DndList data={[{desc: "Baccalaureate in Computer Science 2 1/2 years, 120+ credits", url: './projects/icon/qc.png', name: 'Undergrad at Queens College' },
+            <DndList data={[{desc: "Baccalaureate in Computer Science 2.5 years, 120+ credits", url: './projects/icon/qc.png', name: 'Undergrad at Queens College' },
                             {desc: `Selective software engineering program, 80 students out of 1000+ applicants.<br/>Learned and deployed in-demand technologies like React, Node.js, Typescript, Express, Sequelize,\
                              PostgreSQL, and other Javascript frameworks. Used industry best practices for design, implementation,\
                               and deployments such as MVC designs, version control with Git/GitHub, agile and SCRUM with Slack and Trello,\

@@ -9,7 +9,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 export const Project = () => {
     const {classes} = useStyles();
     return (
-        <div style={{ margin: 40, marginTop: 0 }}>
+        <div style={{ margin: 40, marginTop: 0,  position: 'relative', zIndex: 5 }}>
             <Text style={{
                 textAlign: 'center', padding: '20px', fontSize: 40,
                 fontWeight: 900,
