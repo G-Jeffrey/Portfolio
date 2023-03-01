@@ -61,7 +61,7 @@ export const Education = () => {
                     date="Sept 2022 - Sept 2022"
                     dateClassName={classes.date_text}
                     iconStyle={{ background: colorScheme === 'dark' ? "#f76707" : "#d9480f", color: '#fff' }}
-                    icon={<School />}
+                    icon={<Tie />}
                 >
                     <h3 className="vertical-timeline-element-title">Software Engineer II (L3)</h3>
                     <h4 className="vertical-timeline-element-subtitle"><a className={classes.link} href="https://cunytechprep.nyc/"
