@@ -36,14 +36,14 @@ interface DndListProps {
   }[];
 }
 
-export const Achievement = () =>{
+export const Achievement = (props: any) =>{
     return (
         <Container style={{position:'relative', zIndex:5, paddingBottom: '20px'}}>
             <Text style={{
                 textAlign: 'center', padding: '20px', fontSize: 40, paddingBottom: '0px',
                 fontWeight: 900,
                 lineHeight: 1.1
-            }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Achievements </Text>
+            }} weight={'bolder'} size={'xl'} variant='gradient' gradient={props.theme==='dark' ? { from: 'blue', to: 'cyan' }: { from: '#ff9900', to: 'yellow' }}> Achievements </Text>
             <Text style={{textAlign: 'center', paddingBottom: '20px'}} color="dimmed" size="sm">Drag n Drag!</Text>
             <DndList data={[{desc: "Baccalaureate in Computer Science 2.5 years, 120+ credits", url: './projects/icon/qc.png', name: 'Undergrad at Queens College' },
                             {desc: `Selective software engineering program, 80 students out of 1000+ applicants.<br/>Learned and deployed in-demand technologies like React, Node.js, Typescript, Express, Sequelize,\
@@ -60,6 +60,5 @@ export const Achievement = () =>{
                             {link: 'https://www.credly.com/badges/6474a7cc-9e0b-48c0-bfb4-3b322bb40c52/public_url', desc: "October 2021", url: './projects/icon/azure.png', name: 'Microsoft Azure Fundamentals Certification (AZ-900)' },
                             ]}/>
         </Container>
-        
     )
 }

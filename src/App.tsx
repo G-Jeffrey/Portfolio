@@ -36,7 +36,6 @@ const rotate = keyframes`
   }
 `
 const Blob = styled.div`
-  // background-color: white;
   height: 30vmax;
   aspect-ratio: 1;
   left: 50%;
@@ -45,7 +44,7 @@ const Blob = styled.div`
   position: absolute;
   border-radius: 50%;
   z-index:2;
-  background: linear-gradient(45deg, navy, cyan);
+  // background: linear-gradient(45deg, navy, cyan);
   animation: ${rotate} 10s infinite ease-in-out;
   opacity: 0.8;
 `
@@ -83,6 +82,7 @@ function App() {
   const toggleNav = () => {
     toggleMode();
     setColorScheme(mode);
+    
   };
   useHotkeys([['c', () => {
     toggleNav()
@@ -98,7 +98,6 @@ function App() {
       }, { duration: 4000, fill: "forwards" });
     };
     const handleResize = () => {
-      console.log('resize')
       setHeight(document.body.offsetHeight);
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -114,7 +113,8 @@ function App() {
         <Nav mode={colorScheme} toggleNav={toggleNav} />
         <Blur style={{height:`${height}px`}} id='blur'></Blur>
         {console.log(document.getElementById('blur'))}
-        <Blob id='blob'></Blob>
+        {/* colorScheme === 'dark' ? colorScheme === 'dark' ? "linear-gradient(45deg, navy, cyan);": "linear-gradient(45deg, orange, cyan);"*/}
+        <Blob id='blob' style={{backgroundColor: colorScheme === 'dark' ? "#3366ff" : "orange"}}></Blob>
         <div style={{ backgroundColor: colorScheme === 'dark' ? "#25262b" : "#f8f9fa"}} draggable="false">
         <div className={classes.responsive} draggable="false">
           <Element name="background" key={'title'} >
@@ -127,13 +127,13 @@ function App() {
             {<Skills theme={colorScheme} />}
           </Element>
           <Element name="projects" key={'project'} >
-            {<Project />}
+            {<Project theme={colorScheme} />}
           </Element>
           <Element name="achievements" key={'achievements'} >
-            {<Achievement />}
+            {<Achievement theme={colorScheme} />}
           </Element>
           <Element name="hobby" key={'hobby'}>
-          {<Hobby />}
+          {<Hobby theme={colorScheme}/>}
         </Element>
         {<Footer />}
         </div>

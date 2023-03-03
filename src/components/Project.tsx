@@ -6,7 +6,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
 }));
 
-export const Project = () => {
+export const Project = (props: any) => {
     const {classes} = useStyles();
     return (
         <div style={{ margin: 40, marginTop: 0,  position: 'relative', zIndex: 5 }}>
@@ -14,7 +14,7 @@ export const Project = () => {
                 textAlign: 'center', padding: '20px', fontSize: 40,
                 fontWeight: 900,
                 lineHeight: 1.1
-            }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Projects </Text>
+            }} weight={'bolder'} size={'xl'} variant='gradient' gradient={props.theme==='dark' ? { from: 'blue', to: 'cyan' }: { from: '#ff9900', to: 'yellow' }}> Projects </Text>
             <Container>
                 <SimpleGrid cols={1}>
 

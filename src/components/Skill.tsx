@@ -34,6 +34,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
     }
 });
 export const Skills = (props: any) => {
+    // props.theme==='dark' ? { from: 'blue', to: 'cyan' }: { from: '#ff9900', to: 'yellow' }
     const { classes, cx } = useStyles();
     return (
         <Container style={{paddingTop:'20px',position:'relative',zIndex:5}}>
@@ -41,7 +42,7 @@ export const Skills = (props: any) => {
                 textAlign: 'center', padding: '20px', fontSize: 40,
                 fontWeight: 900,
                 lineHeight: 1.1
-            }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Techincal Skills </Text>
+            }} weight={'bolder'} size={'xl'} variant='gradient' gradient={props.theme==='dark' ? { from: 'blue', to: 'cyan' }: { from: '#ff9900', to: 'yellow' }}> Techincal Skills </Text>
             <Accordion classNames={{
                 item: classes.item,
                 control: classes.control,

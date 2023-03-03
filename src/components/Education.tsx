@@ -42,14 +42,14 @@ const useStyles = createStyles((theme, _params, getRef) => {
 
 
 
-export const Education = () => {
+export const Education = (props: any) => {
     const { classes, cx } = useStyles();
     return (
         <Container className={classes.background}>
             <Text className={classes.header} color="dimmed">
-                <Text component='span' variant="gradient" gradient={{ from: 'blue', to: 'cyan' }} inherit>
+                <Text component='span' variant="gradient" gradient={props.theme==='dark' ? { from: 'blue', to: 'cyan' }: { from: '#ff9900', to: 'yellow' }} inherit>
                     Education</Text>{' '}and{' '}
-                <Text component='span' variant="gradient" gradient={{ from: 'orange', to: 'yellow' }} inherit>
+                <Text component='span' variant="gradient" gradient={props.theme!=='dark' ? { from: 'blue', to: 'cyan' }: { from: '#ff9900', to: 'yellow' }} inherit>
                     Experiences</Text>
 
             </Text>

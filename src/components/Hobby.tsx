@@ -31,7 +31,7 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: '50px'
   },
 }));
-export const Hobby = () => {
+export const Hobby = (props: any) => {
   const [data, setData] = useState({});
   const { classes } = useStyles();
   useEffect(() => {
@@ -46,7 +46,7 @@ export const Hobby = () => {
         textAlign: 'center', padding: '20px', fontSize: 40,
         fontWeight: 900,
         lineHeight: 1.1
-      }} weight={'bolder'} size={'xl'} variant='gradient' gradient={{ from: '#0900FF', to: '#A3E5F9' }}> Hobbies </Text>
+      }} weight={'bolder'} size={'xl'} variant='gradient' gradient={props.theme==='dark' ? { from: 'blue', to: 'cyan' }: { from: '#ff9900', to: 'yellow' }}> Hobbies </Text>
     </Container>
     {/* <div>
         <Keyboards />
